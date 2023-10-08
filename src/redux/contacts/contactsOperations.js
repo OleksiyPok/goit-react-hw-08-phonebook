@@ -1,7 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { getData, postData, deleteData } from 'services/ApiService_fetch';
-// import { getData, postData, deleteData } from 'services/ApiService_axios';
+// import { getData, postData, deleteData } from 'services/ApiService_fetch';
+import {
+  getData,
+  postData,
+  deleteData,
+} from 'services/contactsApiService_axios';
 
 export const getContacts = createAsyncThunk(
   'contacts/getContacts',

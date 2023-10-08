@@ -2,6 +2,7 @@ import axios from 'axios';
 
 // const API_KEY = '';
 
+// axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 axios.defaults.baseURL = 'https://64d7bd1f5f9bf5b879cdec40.mockapi.io';
 axios.defaults.params = {};
 
