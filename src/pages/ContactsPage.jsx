@@ -1,6 +1,7 @@
 import React from 'react';
 import { ToastContainer } from 'react-toastify';
 import { toastParams } from 'components/toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // import { useDispatch } from 'react-redux';
 import Section from 'components/Section';
