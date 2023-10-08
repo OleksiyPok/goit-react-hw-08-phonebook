@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signUp } from 'services/auth-service';
+import { signUp } from 'services/authApiService';
 
 const RegistrationPage = () => {
   const navigate = useNavigate();

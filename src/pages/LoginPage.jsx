@@ -1,8 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-// import { login } from 'services/auth-service';
-import { loginThunk } from 'store/auth/authThunk';
+import { loginThunk } from 'redux/auth/authThunk';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
