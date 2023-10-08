@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { loginThunk } from 'redux/auth/authThunk';
+import { authLogin } from 'redux/auth/authThunk';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const LoginPage = () => {
     // };
 
     dispatch(
-      loginThunk({
+      authLogin({
         email: e.target.elements.email.value,
         password: e.target.elements.password.value,
       })
