@@ -1,23 +1,23 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
 
 import { authLogin } from 'redux/auth/authThunk';
+// import { authLogout, authCurrent } from 'redux/auth/authThunk';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const isAuth = useSelector(state => state.auth.token);
+
+  // useEffect(() => {
+  //   isAuth && navigate('/contacts');
+  // }, [isAuth, navigate]);
+
   const handleLogin = e => {
     e.preventDefault();
-
-    // const user = {
-    //   name: 'a-ho',
-    //   email: 'a4-ho@gmail.com',
-    //   password: '123456789',
-    // };
-
-    // const user = {
-    //   email: e.target.elements.email.value,
-    //   password: e.target.elements.password.value,
-    // };
 
     dispatch(
       authLogin({
@@ -25,17 +25,22 @@ const LoginPage = () => {
         password: e.target.elements.password.value,
       })
     );
-
-    // await login(user).then(console.log);
-
-    // await login(user).then(() => {
-    //   console.log('logined');
-    // });
   };
+
+  // const handleLogout = () => {
+  //   dispatch(authLogout());
+  // };
+
+  // const handleProfile = () => {
+  //   dispatch(authCurrent());
+  // };
 
   return (
     <>
       <h1>Login</h1>
+      {/* <button onClick={handleProfile}>Profile</button>
+      <button onClick={handleLogout}>Logout</button> */}
+
       <form onSubmit={handleLogin}>
         <label htmlFor="E-mail">E-mail</label>
         <input name="email" type="email" className="form__email" id="E-mail" />
