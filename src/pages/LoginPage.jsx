@@ -1,14 +1,16 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router';
+// import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+// import { useNavigate } from 'react-router';
 
 import { authLogin } from 'redux/auth/authThunk';
-// import { authLogout, authCurrent } from 'redux/auth/authThunk';
+import { authCurrent } from 'redux/auth/authThunk';
+import { authLogout } from 'redux/auth/authThunk';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const isAuth = useSelector(state => state.auth.token);
 
@@ -27,19 +29,24 @@ const LoginPage = () => {
     );
   };
 
-  // const handleLogout = () => {
-  //   dispatch(authLogout());
-  // };
+  const handleLogout = () => {
+    dispatch(authLogout());
+  };
 
-  // const handleProfile = () => {
-  //   dispatch(authCurrent());
-  // };
+  const handleProfile = () => {
+    dispatch(authCurrent());
+  };
+
+  const handleIsLogin = () => {
+    console.log('isAuth:', isAuth ? 'TRUE' : 'FALSE');
+  };
 
   return (
     <>
       <h1>Login</h1>
-      {/* <button onClick={handleProfile}>Profile</button>
-      <button onClick={handleLogout}>Logout</button> */}
+      <button onClick={handleProfile}>Profile</button>
+      <button onClick={handleLogout}>Logout</button>
+      <button onClick={handleIsLogin}>isLogin</button>
 
       <form onSubmit={handleLogin}>
         <label htmlFor="E-mail">E-mail</label>

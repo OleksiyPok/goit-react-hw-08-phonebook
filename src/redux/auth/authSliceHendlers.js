@@ -3,10 +3,11 @@
 export const handleFulfilledLogin = (state, { payload }) => {
   state.isLoading = false;
   state.token = payload.token;
+  state.profile = payload.user;
   state.error = '';
 };
 
-export const handleFulfilledLogout = (state, { payload }) => {
+export const handleFulfilledLogout = state => {
   state.isLoading = false;
   state.token = '';
   state.error = '';
@@ -16,20 +17,20 @@ export const handleFulfilledLogout = (state, { payload }) => {
 export const handleFulfilledProfile = (state, { payload }) => {
   state.isLoading = false;
   state.token = '';
-  state.error = '';
   state.profile = payload;
+  state.error = '';
 };
 
-export const handlePending = (state, { payload }) => {
+export const handlePending = state => {
   state.isLoading = true;
   state.token = '';
-  state.error = '';
   state.profile = '';
+  state.error = '';
 };
 
-export const handleRejected = (state, { payload }) => {
+export const handleRejected = (state, { error, payload }) => {
   state.isLoading = false;
   state.token = '';
-  state.error = payload;
   state.profile = '';
+  state.error = error ? error.message : payload;
 };
