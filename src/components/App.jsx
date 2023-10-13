@@ -1,35 +1,27 @@
-import { Link, Route, Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router';
 
-import LoginPage from 'pages/LoginPage';
+import Layout from './Layout/Layout';
+import HomePage from 'pages/HomePage';
 import RegistrationPage from 'pages/RegistrationPage';
+import LoginPage from 'pages/LoginPage';
 import ContactsPage from 'pages/ContactsPage';
+import routes from 'routes';
 
 const App = () => {
   return (
     <>
       <h1>Phonebook</h1>
-      <header>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to="/registration">Registration</Link>
-          </li>
-          <li>
-            <Link to="/contacts">Contacts</Link>
-          </li>
-        </ul>
-      </header>
 
       <Routes>
-        <Route path="/" element={<LoginPage />}></Route>
-        <Route path="/login" element={<LoginPage />}></Route>
-        <Route path="/registration" element={<RegistrationPage />}></Route>
-        <Route path="/contacts" element={<ContactsPage />}></Route>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route
+            path={routes.REGISTRATION_PAGE}
+            element={<RegistrationPage />}
+          />
+          <Route path={routes.LOGIN_PAGE} element={<LoginPage />} />
+          <Route path={routes.CONTACTS_PAGE} element={<ContactsPage />} />
+        </Route>
       </Routes>
     </>
   );
