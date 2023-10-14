@@ -9,6 +9,7 @@ import {
   NavStyled,
   NavLinkStyled,
   ContainerStyled,
+  UserMenyStyled,
   UserNameStyled,
 } from './Header.styled';
 
@@ -29,8 +30,10 @@ const Header = () => {
           <NavLinkStyled to="/registration">Registration</NavLinkStyled>
           <NavLinkStyled to="/contacts">Contacts</NavLinkStyled>
         </NavStyled>
-        <UserNameStyled>{token ? profile.name : ''}</UserNameStyled>
-        {token && <button onClick={handleLogout}>Logout</button>}
+        <UserMenyStyled>
+          <UserNameStyled>{token ? profile.name : ''}</UserNameStyled>
+          {token && <button onClick={handleLogout}>Logout</button>}
+        </UserMenyStyled>
       </ContainerStyled>
     </HeaderStyled>
   );
