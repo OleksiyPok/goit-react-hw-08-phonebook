@@ -3,6 +3,7 @@
 export const handleFulfilledLogin = (state, { payload }) => {
   state.isLoading = false;
   state.token = payload.token;
+  // state.isLogged = true;
   state.profile = payload.user;
   state.error = '';
 };
@@ -10,6 +11,7 @@ export const handleFulfilledLogin = (state, { payload }) => {
 export const handleFulfilledLogout = state => {
   state.isLoading = false;
   state.token = '';
+  // state.isLogged = false;
   state.error = '';
   state.profile = '';
 };
@@ -17,6 +19,7 @@ export const handleFulfilledLogout = state => {
 export const handleFulfilledProfile = (state, { payload }) => {
   state.isLoading = false;
   state.token = '';
+  // state.isLogged = true;
   state.profile = payload;
   state.error = '';
 };
@@ -24,6 +27,7 @@ export const handleFulfilledProfile = (state, { payload }) => {
 export const handlePending = state => {
   state.isLoading = true;
   state.token = '';
+  // state.isLogged = false;
   state.profile = '';
   state.error = '';
 };
@@ -31,6 +35,7 @@ export const handlePending = state => {
 export const handleRejected = (state, { error, payload }) => {
   state.isLoading = false;
   state.token = '';
+  // state.isLogged = false;
   state.profile = '';
   state.error = error ? error.message : payload;
 };
