@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const ContainerStyled = styled.div`
   margin-bottom: 20px;
   max-width: 600px;
   width: 100%;
@@ -11,7 +11,7 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const Title = styled.h2`
+export const TitleStyled = styled.h2`
   color: darkblue;
   text-align: center;
 `;

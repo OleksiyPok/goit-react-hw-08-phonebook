@@ -26,9 +26,9 @@ const Header = () => {
       <ContainerStyled>
         <NavStyled>
           <NavLinkStyled to="/">Home</NavLinkStyled>
+          <NavLinkStyled to="/contacts">Contacts</NavLinkStyled>
           <NavLinkStyled to="/login">Login</NavLinkStyled>
           <NavLinkStyled to="/registration">Registration</NavLinkStyled>
-          <NavLinkStyled to="/contacts">Contacts</NavLinkStyled>
         </NavStyled>
         <UserMenyStyled>
           <UserNameStyled>{token ? profile.name : ''}</UserNameStyled>

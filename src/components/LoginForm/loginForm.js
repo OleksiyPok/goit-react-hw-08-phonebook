@@ -1,6 +1,14 @@
 import { authLogin } from 'redux/auth/authThunk';
 import { useDispatch } from 'react-redux';
 
+import {
+  FormStyled,
+  FormItemStyled,
+  LabelStyled,
+  InputStyled,
+  ButtonStyled,
+} from './loginForm.styled';
+
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
@@ -19,21 +27,29 @@ export const LoginForm = () => {
 
   return (
     <>
-      <form onSubmit={handleLogin}>
-        <label htmlFor="E-mail">E-mail</label>
-        <input name="email" type="email" className="form__email" id="E-mail" />
-        <label htmlFor="password">Password</label>
-        <input
-          name="password"
-          type="password"
-          className="form__password"
-          id="password"
-        />
-        <button type="submit" className="form__submit">
+      <FormStyled onSubmit={handleLogin}>
+        <FormItemStyled>
+          <LabelStyled htmlFor="E-mail">E-mail:</LabelStyled>
+          <InputStyled
+            name="email"
+            type="email"
+            className="form__email"
+            id="E-mail"
+          />
+        </FormItemStyled>
+        <FormItemStyled>
+          <LabelStyled htmlFor="password">Password:</LabelStyled>
+          <InputStyled
+            name="password"
+            type="password"
+            className="form__password"
+            id="password"
+          />
+        </FormItemStyled>
+        <ButtonStyled type="submit" className="form__submit">
           Submit
-        </button>
-      </form>
-      ;
+        </ButtonStyled>
+      </FormStyled>
     </>
   );
 };

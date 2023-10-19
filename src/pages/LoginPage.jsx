@@ -3,6 +3,7 @@ import React from 'react';
 
 // import { useNavigate } from 'react-router';
 
+import Section from 'components/Section';
 import { LoginForm } from 'components/LoginForm/loginForm';
 
 const LoginPage = () => {
@@ -14,9 +15,9 @@ const LoginPage = () => {
 
   return (
     <>
-      <h1>Login</h1>
-
-      <LoginForm />
+      <Section title="Login">
+        <LoginForm />
+      </Section>
     </>
   );
 };

@@ -1,12 +1,14 @@
 import React from 'react';
 
-import { RegistrationForm } from 'components/LoginForm/RegistrationForm/registrationForm';
+import Section from 'components/Section';
+import { RegistrationForm } from 'components/RegistrationForm/registrationForm';
 
 const RegistrationPage = () => {
   return (
     <>
-      <h1>Registration</h1>
-      <RegistrationForm />
+      <Section title="Registration">
+        <RegistrationForm />
+      </Section>
     </>
   );
 };
