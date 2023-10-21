@@ -1,5 +1,7 @@
 import { authLogin } from 'redux/auth/authThunk';
+import { useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import {
   FormStyled,
@@ -11,6 +13,7 @@ import {
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogin = e => {
     e.preventDefault();
@@ -22,7 +25,13 @@ export const LoginForm = () => {
     };
     form.reset();
 
-    dispatch(authLogin(user));
+    dispatch(authLogin(user))
+      .unwrap()
+      .then(({ user }) => {
+        navigate('/');
+        toast.success(`Welcome ${user.name}`);
+      })
+      .catch(() => toast.error('Error login'));
   };
 
   return (

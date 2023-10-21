@@ -1,7 +1,7 @@
 import React from 'react';
-import { ToastContainer } from 'react-toastify';
-import { toastParams } from 'components/toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import { ToastContainer } from 'react-toastify';
+// import { toastParams } from 'components/toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 // import { useDispatch } from 'react-redux';
 import Section from 'components/Section';
@@ -19,7 +19,7 @@ const ContactsPage = () => {
         <FilterForm />
         <ContactList />
       </Section>
-      <ToastContainer {...toastParams} />
+      {/* <ToastContainer {...toastParams} /> */}
     </>
   );
 };

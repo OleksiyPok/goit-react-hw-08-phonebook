@@ -7,6 +7,10 @@ import LoginPage from 'pages/LoginPage';
 import ContactsPage from 'pages/ContactsPage';
 import routes from 'routes';
 
+import { ToastContainer } from 'react-toastify';
+import { toastParams } from 'components/toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const App = () => {
   return (
     <>
@@ -23,6 +27,7 @@ const App = () => {
           <Route path={routes.CONTACTS_PAGE} element={<ContactsPage />} />
         </Route>
       </Routes>
+      <ToastContainer {...toastParams} />
     </>
   );
 };

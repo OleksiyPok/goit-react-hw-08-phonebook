@@ -1,8 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
 
 import { authLogout } from 'redux/auth/authThunk';
 import { useDispatch } from 'react-redux';
+
+import { toast } from 'react-toastify';
 
 import {
   HeaderStyled,
@@ -15,10 +18,16 @@ import {
 
 const Header = () => {
   const dispatch = useDispatch();
-  const { token, profile } = useSelector(state => state.auth);
+  const navigate = useNavigate();
+  const { isLogged, profile } = useSelector(state => state.auth);
 
   const handleLogout = () => {
-    dispatch(authLogout());
+    dispatch(authLogout())
+      .unwrap()
+      .then(() => {
+        navigate('/');
+        toast.success(`Bye!`);
+      });
   };
 
   return (
@@ -31,8 +40,8 @@ const Header = () => {
           <NavLinkStyled to="/registration">Registration</NavLinkStyled>
         </NavStyled>
         <UserMenyStyled>
-          <UserNameStyled>{token ? profile.name : ''}</UserNameStyled>
-          {token && <button onClick={handleLogout}>Logout</button>}
+          <UserNameStyled>{isLogged ? profile.name : ''}</UserNameStyled>
+          {isLogged && <button onClick={handleLogout}>Logout</button>}
         </UserMenyStyled>
       </ContainerStyled>
     </HeaderStyled>
