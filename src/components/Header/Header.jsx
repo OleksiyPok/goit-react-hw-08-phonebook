@@ -36,8 +36,10 @@ const Header = () => {
         <NavStyled>
           <NavLinkStyled to="/">Home</NavLinkStyled>
           <NavLinkStyled to="/contacts">Contacts</NavLinkStyled>
-          <NavLinkStyled to="/login">Login</NavLinkStyled>
-          <NavLinkStyled to="/registration">Registration</NavLinkStyled>
+          {!isLogged && <NavLinkStyled to="/login">Login</NavLinkStyled>}
+          {!isLogged && (
+            <NavLinkStyled to="/registration">Registration</NavLinkStyled>
+          )}
         </NavStyled>
         <UserMenyStyled>
           <UserNameStyled>{isLogged ? profile.name : ''}</UserNameStyled>

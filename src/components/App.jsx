@@ -10,6 +10,7 @@ import routes from 'routes';
 import { ToastContainer } from 'react-toastify';
 import { toastParams } from 'components/toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 const App = () => {
   return (
@@ -24,7 +25,14 @@ const App = () => {
             element={<RegistrationPage />}
           />
           <Route path={routes.LOGIN_PAGE} element={<LoginPage />} />
-          <Route path={routes.CONTACTS_PAGE} element={<ContactsPage />} />
+          <Route
+            path={routes.CONTACTS_PAGE}
+            element={
+              <PrivateRoute>
+                <ContactsPage />
+              </PrivateRoute>
+            }
+          />
         </Route>
       </Routes>
       <ToastContainer {...toastParams} />

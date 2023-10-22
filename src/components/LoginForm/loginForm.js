@@ -28,7 +28,7 @@ export const LoginForm = () => {
     dispatch(authLogin(user))
       .unwrap()
       .then(({ user }) => {
-        navigate('/');
+        navigate('/contacts');
         toast.success(`Welcome ${user.name}`);
       })
       .catch(() => toast.error('Error login'));

@@ -27,7 +27,7 @@ export const NavStyled = styled.nav`
   gap: 25px;
   width: 450px;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 `;
 
 export const NavLinkStyled = styled(NavLink)`
