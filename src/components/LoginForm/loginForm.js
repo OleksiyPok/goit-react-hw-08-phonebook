@@ -1,4 +1,4 @@
-import { authLogin } from 'redux/auth/authThunk';
+import { authLogin } from 'redux/auth/authOperations';
 import { useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';

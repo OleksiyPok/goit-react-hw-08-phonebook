@@ -7,10 +7,12 @@ import LoginPage from 'pages/LoginPage';
 import ContactsPage from 'pages/ContactsPage';
 import routes from 'routes';
 
+import PrivateRoute from './PrivateRoute/PrivateRoute';
+import PublicRoute from './PublicRoute/PublicRoute';
+
 import { ToastContainer } from 'react-toastify';
 import { toastParams } from 'components/toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 const App = () => {
   return (
@@ -22,9 +24,20 @@ const App = () => {
           <Route index element={<HomePage />} />
           <Route
             path={routes.REGISTRATION_PAGE}
-            element={<RegistrationPage />}
+            element={
+              <PublicRoute>
+                <RegistrationPage />
+              </PublicRoute>
+            }
           />
-          <Route path={routes.LOGIN_PAGE} element={<LoginPage />} />
+          <Route
+            path={routes.LOGIN_PAGE}
+            element={
+              <PublicRoute>
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
           <Route
             path={routes.CONTACTS_PAGE}
             element={

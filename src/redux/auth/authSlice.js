@@ -8,7 +8,7 @@ import {
 } from './authSliceHendlers';
 import { authInitialState } from './authInitialState';
 
-import { authLogin, authLogout, authCurrent } from './authThunk';
+import { authLogin, authLogout, authCurrent } from './authOperations';
 
 const authSlice = createSlice({
   name: 'auth',
