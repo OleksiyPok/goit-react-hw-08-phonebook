@@ -10,6 +10,7 @@ import {
   InputStyled,
   ButtonStyled,
 } from './loginForm.styled';
+import { Link } from 'react-router-dom';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -58,6 +59,9 @@ export const LoginForm = () => {
         <ButtonStyled type="submit" className="form__submit">
           Submit
         </ButtonStyled>
+        <span>Not registered yet?</span>
+
+        <Link to="/registration">To registration</Link>
       </FormStyled>
     </>
   );

@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 import { signUp } from 'services/authApiService';
 
 import {
@@ -57,6 +58,9 @@ export const RegistrationForm = () => {
       <ButtonStyled type="submit" className="form__submit">
         Submit
       </ButtonStyled>
+
+      <span>Already registered?</span>
+      <Link to="/login">To login</Link>
     </FormStyled>
   );
 };

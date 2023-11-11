@@ -28,5 +28,4 @@ export const ButtonStyled = styled.button`
   margin-top: 14px;
   width: 30%;
   margin-left: auto;
-  /* margin-right: auto; */
 `;

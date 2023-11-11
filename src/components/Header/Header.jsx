@@ -14,6 +14,7 @@ import {
   ContainerStyled,
   UserMenyStyled,
   UserNameStyled,
+  SpanStyled,
 } from './Header.styled';
 
 const Header = () => {
@@ -36,14 +37,19 @@ const Header = () => {
         <NavStyled>
           <NavLinkStyled to="/">Home</NavLinkStyled>
           <NavLinkStyled to="/contacts">Contacts</NavLinkStyled>
-          {!isLoggedIn && <NavLinkStyled to="/login">Login</NavLinkStyled>}
+          {/* {!isLoggedIn && <NavLinkStyled to="/login">Login</NavLinkStyled>}
           {!isLoggedIn && (
             <NavLinkStyled to="/registration">Registration</NavLinkStyled>
-          )}
+          )} */}
         </NavStyled>
         <UserMenyStyled>
           <UserNameStyled>{isLoggedIn ? profile.name : ''}</UserNameStyled>
-          {isLoggedIn && <button onClick={handleLogout}>Logout</button>}
+          {isLoggedIn && (
+            <SpanStyled to="" onClick={handleLogout}>
+              Logout
+            </SpanStyled>
+          )}
+          {!isLoggedIn && <NavLinkStyled to="/login">Login</NavLinkStyled>}
         </UserMenyStyled>
       </ContainerStyled>
     </HeaderStyled>

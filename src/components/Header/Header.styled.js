@@ -42,7 +42,6 @@ export const NavLinkStyled = styled(NavLink)`
   }
   &.active {
     color: orange;
-    /* font-weight: 700; */
   }
 `;
 
@@ -53,5 +52,18 @@ export const UserMenyStyled = styled.div`
 `;
 
 export const UserNameStyled = styled.div`
+  font-style: italic;
+  color: yellow;
+  font-weight: 700;
+`;
+
+export const SpanStyled = styled.span`
   color: white;
+
+  &:hover {
+    color: yellow;
+  }
+  &:active {
+    color: orange;
+  }
 `;
