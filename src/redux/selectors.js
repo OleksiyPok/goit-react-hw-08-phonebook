@@ -1,9 +1,12 @@
 import { createSelector } from '@reduxjs/toolkit';
 
+export const selectAuthIsLoading = state => state.auth.isLoading;
 export const selectIsLoggedIn = state => state.auth.isLoggedIn;
 export const selectToken = state => state.auth.token;
+export const selectCurrent = state => state.auth.current;
+export const selectError = state => state.auth.error;
 
-export const selectIsLoading = state => state.contacts.isLoading;
+export const selectContactsIsLoading = state => state.contacts.isLoading;
 export const selectContactsList = state => state.contacts.contactsList;
 export const selectFilterKey = state => state.filter.filterKey;
 

@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { authInitialState } from './authInitialState';
+
 import {
   authRegistration,
   authLogin,
@@ -15,7 +17,6 @@ import {
   handlePending,
   handleRejected,
 } from './authSliceHendlers';
-import { authInitialState } from './authInitialState';
 
 const authSlice = createSlice({
   name: 'auth',
