@@ -1,23 +1,31 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import {
+  authRegistration,
+  authLogin,
+  authLogout,
+  authCurrent,
+} from './authOperations';
+
+import {
+  handleFulfilledRegistration,
   handleFulfilledLogin,
   handleFulfilledLogout,
-  handleFulfilledProfile,
+  handleFulfilledCurrent,
   handlePending,
   handleRejected,
 } from './authSliceHendlers';
 import { authInitialState } from './authInitialState';
-
-import { authLogin, authLogout, authCurrent } from './authOperations';
 
 const authSlice = createSlice({
   name: 'auth',
   initialState: authInitialState,
   extraReducers: builder => {
     builder
+      .addCase(authRegistration.fulfilled, handleFulfilledRegistration)
       .addCase(authLogin.fulfilled, handleFulfilledLogin)
       .addCase(authLogout.fulfilled, handleFulfilledLogout)
-      .addCase(authCurrent.fulfilled, handleFulfilledProfile)
+      .addCase(authCurrent.fulfilled, handleFulfilledCurrent)
       .addMatcher(action => {
         action.type.endsWith('/pending');
       }, handlePending)

@@ -13,11 +13,10 @@ export const ContainerStyled = styled.div`
 export const HeaderStyled = styled.div`
   height: 40px;
   background-color: darkblue;
-
+  display: flex;
   align-items: center;
 
   @media screen and (min-width: 768px) {
-    display: flex;
     height: 60px;
   }
 `;
@@ -57,7 +56,7 @@ export const UserNameStyled = styled.div`
   font-weight: 700;
 `;
 
-export const SpanStyled = styled.span`
+export const LogStyled = styled.span`
   color: white;
 
   &:hover {

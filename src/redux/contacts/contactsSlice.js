@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { contactsInitialState } from './contactsInitialState';
-import { getContacts, addContact, deleteContact } from './contactsThunk';
+import { getContacts, addContact, deleteContact } from './contactsOparations';
 
 import {
   handleAddContact,

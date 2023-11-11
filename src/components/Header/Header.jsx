@@ -14,13 +14,17 @@ import {
   ContainerStyled,
   UserMenyStyled,
   UserNameStyled,
-  SpanStyled,
+  LogStyled,
 } from './Header.styled';
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isLoggedIn, profile } = useSelector(state => state.auth);
+  const { isLoggedIn, current } = useSelector(state => state.auth);
+
+  const handleLogin = () => {
+    navigate('/login');
+  };
 
   const handleLogout = () => {
     dispatch(authLogout())
@@ -43,13 +47,9 @@ const Header = () => {
           )} */}
         </NavStyled>
         <UserMenyStyled>
-          <UserNameStyled>{isLoggedIn ? profile.name : ''}</UserNameStyled>
-          {isLoggedIn && (
-            <SpanStyled to="" onClick={handleLogout}>
-              Logout
-            </SpanStyled>
-          )}
-          {!isLoggedIn && <NavLinkStyled to="/login">Login</NavLinkStyled>}
+          <UserNameStyled>{isLoggedIn ? current.name : ''}</UserNameStyled>
+          {isLoggedIn && <LogStyled onClick={handleLogout}>Logout</LogStyled>}
+          {!isLoggedIn && <LogStyled onClick={handleLogin}>Login</LogStyled>}
         </UserMenyStyled>
       </ContainerStyled>
     </HeaderStyled>

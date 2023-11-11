@@ -1,6 +1,8 @@
-import { authLogin } from 'redux/auth/authOperations';
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
+
+import { authLogin } from 'redux/auth/authOperations';
 import { toast } from 'react-toastify';
 
 import {
@@ -10,7 +12,6 @@ import {
   InputStyled,
   ButtonStyled,
 } from './loginForm.styled';
-import { Link } from 'react-router-dom';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -27,12 +28,13 @@ export const LoginForm = () => {
     form.reset();
 
     dispatch(authLogin(user))
-      .unwrap()
       .then(({ user }) => {
         navigate('/contacts');
         toast.success(`Welcome ${user.name}`);
       })
-      .catch(() => toast.error('Error login'));
+      .catch(() => {
+        toast.error('Login error');
+      });
   };
 
   return (

@@ -1,6 +1,9 @@
-import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
-import { signUp } from 'services/authApiService';
+import { useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
+
+import { authRegistration } from 'redux/auth/authOperations';
+import { toast } from 'react-toastify';
 
 import {
   FormStyled,
@@ -11,9 +14,10 @@ import {
 } from './registrationForm.styled';
 
 export const RegistrationForm = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = async e => {
+  const handleRegistration = async e => {
     e.preventDefault();
 
     const form = e.target;
@@ -24,14 +28,19 @@ export const RegistrationForm = () => {
     };
     form.reset();
 
-    await signUp(newUser).then(() => {
-      console.log('created');
-      navigate('/login');
-    });
+    dispatch(authRegistration(newUser))
+      .unwrap()
+      .then(() => {
+        navigate('/login');
+        toast.success(`New user ${newUser.name} has been registered`);
+      })
+      .catch(() => {
+        toast.error(`New user ${newUser.name} has not been registered`);
+      });
   };
 
   return (
-    <FormStyled onSubmit={handleSubmit}>
+    <FormStyled onSubmit={handleRegistration}>
       <FormItemStyled>
         <LabelStyled htmlFor="name">Name:</LabelStyled>
         <InputStyled name="name" type="text" className="form__name" id="name" />
