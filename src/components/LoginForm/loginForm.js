@@ -28,12 +28,15 @@ export const LoginForm = () => {
     form.reset();
 
     dispatch(authLogin(user))
+      .unwrap()
       .then(({ user }) => {
         navigate('/contacts');
         toast.success(`Welcome ${user.name}`);
+        console.log('success');
       })
       .catch(() => {
         toast.error('Login error');
+        console.log('error');
       });
   };
 

@@ -14,13 +14,13 @@ const deleteToken = () => {
 
 export const registration = async newUser => {
   const { data } = await instanceAuth.post('/users/signup', newUser);
-  console.log('registration data:', data); // develop
+  // console.log('registration data:', data); // develop
   return data;
 };
 
 export const login = async user => {
   const { data } = await instanceAuth.post('/users/login', user);
-  console.log('login data:', data); // develop
+  // console.log('login data:', data); // develop
   setToken(data.token);
   return data;
 };
@@ -34,6 +34,6 @@ export const logout = async user => {
 
 export const getCurrent = async () => {
   const { data } = await instanceAuth.get('/users/current');
-  console.log('getCurrent data:', data); // develop
+  // console.log('getCurrent data:', data); // develop
   return data;
 };

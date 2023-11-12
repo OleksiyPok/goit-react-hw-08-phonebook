@@ -1,11 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router';
 
+import { useNavigate } from 'react-router';
 import { authLogout } from 'redux/auth/authOperations';
 import { useDispatch } from 'react-redux';
 
 import { toast } from 'react-toastify';
+import { useAuth } from 'hooks/hooks';
 
 import {
   HeaderStyled,
@@ -20,7 +20,7 @@ import {
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isLoggedIn, current } = useSelector(state => state.auth);
+  const { isLoggedIn, current } = useAuth();
 
   const handleLogin = () => {
     navigate('/login');
@@ -31,7 +31,7 @@ const Header = () => {
       .unwrap()
       .then(() => {
         navigate('/');
-        toast.success(`Bye!`);
+        toast.success(`Bye, ${current.name}!`);
       });
   };
 

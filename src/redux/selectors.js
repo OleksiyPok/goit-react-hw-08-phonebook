@@ -6,7 +6,7 @@ export const selectToken = state => state.auth.token;
 export const selectCurrent = state => state.auth.current;
 export const selectError = state => state.auth.error;
 
-export const selectContactsIsLoading = state => state.contacts.isLoading;
+export const selectsContactsIsLoading = state => state.contacts.isLoading;
 export const selectContactsList = state => state.contacts.contactsList;
 export const selectFilterKey = state => state.filter.filterKey;
 
