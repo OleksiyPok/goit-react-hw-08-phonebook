@@ -1,10 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import {
-  getData,
-  postData,
-  deleteData,
-} from 'services/contactsApiService_axios';
+// import { getData, postData, deleteData } from 'services/authApiService';
+import { getData, postData, deleteData } from 'services/contactsApiEndpoints';
 
 export const getContacts = createAsyncThunk(
   'contacts/getContacts',

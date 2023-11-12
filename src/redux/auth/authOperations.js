@@ -4,7 +4,7 @@ import {
   login,
   logout,
   getCurrent,
-} from 'services/authApiService';
+} from 'services/authApiEndpoints';
 
 export const authRegistration = createAsyncThunk(
   'auth/registration',
