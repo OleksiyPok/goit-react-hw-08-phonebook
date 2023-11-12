@@ -61,6 +61,7 @@ export const LogStyled = styled.span`
 
   &:hover {
     color: yellow;
+    cursor: pointer;
   }
   &:active {
     color: orange;
