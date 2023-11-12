@@ -21,22 +21,22 @@ export const LoginForm = () => {
     e.preventDefault();
 
     const form = e.target;
-    const user = {
+    const logUser = {
       email: form.elements.email.value,
       password: form.elements.password.value,
     };
     form.reset();
 
-    dispatch(authLogin(user))
+    dispatch(authLogin(logUser))
       .unwrap()
       .then(({ user }) => {
         navigate('/contacts');
         toast.success(`Welcome ${user.name}`);
-        console.log('success');
+        console.log('user:', user);
       })
-      .catch(() => {
+      .catch(error => {
         toast.error('Login error');
-        console.log('error');
+        console.log(error);
       });
   };
 
