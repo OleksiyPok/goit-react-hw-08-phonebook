@@ -3,15 +3,20 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { selectFilteredContacts } from 'redux/selectors';
 // import { selectStatus } from 'redux/selectors';
-import { getContacts, deleteContact } from 'redux/contacts/contactsOparations';
+import {
+  getContacts,
+  // editContact,
+  deleteContact,
+} from 'redux/contacts/contactsOparations';
 // import { Loader } from 'components/Loader/Loader';
 
 import {
   UlStyled,
   LiStyled,
-  SpanStyled,
-  ButtonStyled,
   PStyled,
+  SpanStyled,
+  ButtonBlock,
+  ButtonStyled,
 } from './ContactList.styled';
 
 const ContactList = () => {
@@ -21,6 +26,10 @@ const ContactList = () => {
   useEffect(() => {
     dispatch(getContacts());
   }, [dispatch]);
+
+  const handleOnEdit = person => {
+    // dispatch(editContact(person));
+  };
 
   const handleOnDelete = person => {
     dispatch(deleteContact(person));
@@ -39,13 +48,22 @@ const ContactList = () => {
           <LiStyled key={person.id}>
             <SpanStyled>{person.name}:</SpanStyled>
             <SpanStyled>{person.number}</SpanStyled>
-            <ButtonStyled
-              onClick={() => {
-                handleOnDelete(person);
-              }}
-            >
-              Delete
-            </ButtonStyled>
+            <ButtonBlock>
+              <ButtonStyled
+                onClick={() => {
+                  handleOnEdit(person);
+                }}
+              >
+                Edit
+              </ButtonStyled>
+              <ButtonStyled
+                onClick={() => {
+                  handleOnDelete(person);
+                }}
+              >
+                Delete
+              </ButtonStyled>
+            </ButtonBlock>
           </LiStyled>
         ))}
       </UlStyled>

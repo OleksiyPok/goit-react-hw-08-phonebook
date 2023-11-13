@@ -7,6 +7,7 @@ export const UlStyled = styled.ul`
 
 export const LiStyled = styled.li`
   padding: 4px;
+  /* display: flex; */
 `;
 
 export const PStyled = styled.p`
@@ -17,10 +18,18 @@ export const PStyled = styled.p`
 
 export const SpanStyled = styled.span`
   display: inline-block;
-  width: calc((100% - 80px) / 2);
+  width: calc((100% - 150px) / 2);
   min-width: 200px;
-  overflow: hidden;
   text-overflow: ellipsis;
 `;
 
-export const ButtonStyled = styled.button``;
+export const ButtonBlock = styled.button`
+  border: none;
+  background-color: white;
+  display: inline;
+`;
+
+export const ButtonStyled = styled.button`
+  width: 50px;
+  margin-left: 4px;
+`;

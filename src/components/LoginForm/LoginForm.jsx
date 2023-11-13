@@ -11,7 +11,7 @@ import {
   LabelStyled,
   InputStyled,
   ButtonStyled,
-} from './loginForm.styled';
+} from './LoginForm.styled';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();

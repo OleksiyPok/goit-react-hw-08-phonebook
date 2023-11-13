@@ -11,7 +11,7 @@ import {
   LabelStyled,
   InputStyled,
   ButtonStyled,
-} from './registrationForm.styled';
+} from './RegistrationForm.styled';
 
 export const RegistrationForm = () => {
   const dispatch = useDispatch();

@@ -13,6 +13,9 @@ import {
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState: contactsInitialState,
+  reducer: {
+    edit() {},
+  },
   extraReducers: builder => {
     builder
       .addCase(getContacts.fulfilled, handleGetContacts)

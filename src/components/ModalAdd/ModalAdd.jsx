@@ -1,4 +1,3 @@
-// import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
@@ -11,9 +10,9 @@ import {
   LabelStyled,
   InputStyled,
   ButtonStyled,
-} from './ContactForm.styled';
+} from './ModalAdd.styled';
 
-const ContactForm = () => {
+const ModalAdd = () => {
   const dispatch = useDispatch();
   const contactsList = useSelector(selectContactsList);
 
@@ -84,4 +83,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default ModalAdd;
