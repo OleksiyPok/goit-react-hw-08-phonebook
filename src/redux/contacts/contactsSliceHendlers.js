@@ -13,6 +13,13 @@ export const handleAddContact = (state, { payload }) => {
   toast.success(`${payload.name} has been added to contacts.`);
 };
 
+export const handleUpdateContact = (state, { payload }) => {
+  state.status = 'fulfilled';
+  state.error = '';
+  // state.contactsList.push(payload);
+  toast.success(`${payload.name} has been updated.`);
+};
+
 export const handleDeleteContact = (state, { payload }) => {
   state.status = 'fulfilled';
   state.error = '';

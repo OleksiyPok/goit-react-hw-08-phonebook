@@ -1,11 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { contactsInitialState } from './contactsInitialState';
-import { getContacts, addContact, deleteContact } from './contactsOparations';
+import {
+  getContacts,
+  addContact,
+  updateContact,
+  deleteContact,
+} from './contactsOparations';
 
 import {
-  handleAddContact,
-  handleDeleteContact,
   handleGetContacts,
+  handleAddContact,
+  handleUpdateContact,
+  handleDeleteContact,
   handlePending,
   handleRejected,
 } from './contactsSliceHendlers';
@@ -20,6 +26,7 @@ const contactsSlice = createSlice({
     builder
       .addCase(getContacts.fulfilled, handleGetContacts)
       .addCase(addContact.fulfilled, handleAddContact)
+      .addCase(updateContact.fulfilled, handleUpdateContact)
       .addCase(deleteContact.fulfilled, handleDeleteContact)
 
       .addMatcher(action => {

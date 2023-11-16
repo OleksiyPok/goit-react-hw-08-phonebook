@@ -18,7 +18,7 @@ export const deleteData = async person => {
   return data;
 };
 
-export const updateData = async person => {
+export const patchData = async person => {
   const { data } = await instance.patch(`/contacts/${person.id}`);
   // console.log('updateData:', data); // develop
   return data;

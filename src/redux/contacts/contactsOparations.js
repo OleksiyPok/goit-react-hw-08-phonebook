@@ -1,7 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 // import { getData, postData, deleteData } from 'services/authApiService';
-import { getData, postData, deleteData } from 'services/contactsApiEndpoints';
+import {
+  getData,
+  postData,
+  patchData,
+  deleteData,
+} from 'services/contactsApiEndpoints';
 
 export const getContacts = createAsyncThunk(
   'contacts/getContacts',
@@ -29,6 +34,25 @@ export const addContact = createAsyncThunk(
     try {
       const data = await postData(newPerson);
       // console.log('post data:', data); // develop
+
+      if (!data) {
+        throw new Error('Server Error!');
+      }
+
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateContact = createAsyncThunk(
+  'contacts/updateContact',
+
+  async (updatedPerson, thunkApi) => {
+    try {
+      const data = await patchData(updatedPerson);
+      // console.log('patch data:', data); // develop
 
       if (!data) {
         throw new Error('Server Error!');

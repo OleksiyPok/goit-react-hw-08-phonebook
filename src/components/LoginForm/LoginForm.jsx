@@ -32,7 +32,7 @@ export const LoginForm = () => {
       .then(({ user }) => {
         navigate('/contacts');
         toast.success(`Welcome ${user.name}`);
-        console.log('user:', user);
+        // console.log('user:', user);
       })
       .catch(error => {
         toast.error('Login error');

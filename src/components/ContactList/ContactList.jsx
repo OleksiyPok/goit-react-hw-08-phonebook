@@ -19,7 +19,7 @@ import {
   ButtonStyled,
 } from './ContactList.styled';
 
-const ContactList = () => {
+const ContactList = ({ modalOpen }) => {
   const dispatch = useDispatch();
   // const loadStatus = useSelector(selectStatus);
 
@@ -28,7 +28,7 @@ const ContactList = () => {
   }, [dispatch]);
 
   const handleOnEdit = person => {
-    // dispatch(editContact(person));
+    modalOpen(person);
   };
 
   const handleOnDelete = person => {
@@ -49,18 +49,8 @@ const ContactList = () => {
             <SpanStyled>{person.name}:</SpanStyled>
             <SpanStyled>{person.number}</SpanStyled>
             <ButtonBlock>
-              <ButtonStyled
-                onClick={() => {
-                  handleOnEdit(person);
-                }}
-              >
-                Edit
-              </ButtonStyled>
-              <ButtonStyled
-                onClick={() => {
-                  handleOnDelete(person);
-                }}
-              >
+              <ButtonStyled onClick={handleOnEdit(person)}>Edit</ButtonStyled>
+              <ButtonStyled onClick={handleOnDelete(person)}>
                 Delete
               </ButtonStyled>
             </ButtonBlock>
