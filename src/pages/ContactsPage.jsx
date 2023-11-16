@@ -30,8 +30,7 @@ const ContactsPage = () => {
     console.log('showModal:', showModalEdit);
   };
 
-  const handleModalEditClose = person => {
-    console.log('person:', person);
+  const handleModalEditClose = () => {
     setShowModalEdit(false);
     console.log('showModal:', showModalEdit);
   };
@@ -40,12 +39,17 @@ const ContactsPage = () => {
     <>
       {/* <Section title="New contact"> */}
       {/* <ContactForm /> */}
+      <button type="button" onClick={handleModalAddOpen}>
+        New contact
+      </button>
       {showModalAdd && <ModalAdd modalClose={handleModalAddClose} />}
-      {showModalEdit && <ModalEdit modalClose={handleModalEditClose} />}
+      {showModalEdit && (
+        <ModalEdit modalClose={handleModalEditClose} person={editPerson} />
+      )}
       {/* </Section> */}
       <Section title="Contacts">
         <FilterForm />
-        <ContactList modalEditOpen={person => handleModalEditOpen(person)} />
+        <ContactList modalOpen={handleModalEditOpen} />
       </Section>
     </>
   );

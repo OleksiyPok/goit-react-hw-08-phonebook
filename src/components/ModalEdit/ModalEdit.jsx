@@ -12,7 +12,8 @@ import {
   ButtonStyled,
 } from './ModalEdit.styled';
 
-const ModalEdit = ({ modalClose }) => {
+const ModalEdit = ({ modalClose, person }) => {
+  console.log('person:', person);
   const contactsList = useSelector(selectContactsList);
 
   const normalize = sentence => {
@@ -58,6 +59,7 @@ const ModalEdit = ({ modalClose }) => {
         <FormStyled onSubmit={handleOnUpdate} autocomplete="off">
           <LabelStyled htmlFor="name">Name</LabelStyled>
           <InputStyled
+            value={person.name}
             type="text"
             name="name"
             id="name"
@@ -68,6 +70,7 @@ const ModalEdit = ({ modalClose }) => {
           />
           <LabelStyled htmlFor="number">Number</LabelStyled>
           <InputStyled
+            value={person.number}
             type="tel"
             name="number"
             id="number"
