@@ -10,6 +10,7 @@ export const ModalOverlay = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-y: auto;
   /* transform: scale(0); */
 
   /* &.active {
@@ -17,25 +18,26 @@ export const ModalOverlay = styled.div`
   } */
 `;
 
-export const ModalWindow = styled.form`
-  border: 2px solid;
-  border-radius: 5px;
-  margin-bottom: 20px;
+export const ModalForm = styled.form`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   max-width: 350px;
   width: 100%;
   padding: 20px;
+
   background-color: white;
+  border: 2px solid;
+  border-radius: 5px;
+  margin-bottom: 20px;
 `;
 
 export const TitleStyled = styled.h2`
   color: darkblue;
   text-align: center;
-`;
-
-export const FormStyled = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 10px;
 `;
 
 export const LabelStyled = styled.label`
@@ -50,4 +52,13 @@ export const InputStyled = styled.input`
 
 export const ButtonStyled = styled.button`
   margin-top: 20px;
+`;
+
+export const ButtonClose = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 `;

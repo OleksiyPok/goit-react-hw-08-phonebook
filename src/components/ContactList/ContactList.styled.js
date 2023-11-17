@@ -30,6 +30,6 @@ export const ButtonBlock = styled.button`
 `;
 
 export const ButtonStyled = styled.button`
-  width: 50px;
-  margin-left: 4px;
+  /* width: 50px; */
+  margin-left: 10px;
 `;

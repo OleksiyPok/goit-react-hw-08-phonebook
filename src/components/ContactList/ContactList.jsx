@@ -19,7 +19,7 @@ import {
   ButtonStyled,
 } from './ContactList.styled';
 
-const ContactList = ({ modalOpen }) => {
+export const ContactList = ({ modalOpen }) => {
   const dispatch = useDispatch();
   // const loadStatus = useSelector(selectStatus);
 
@@ -28,11 +28,11 @@ const ContactList = ({ modalOpen }) => {
   }, [dispatch]);
 
   const handleOnEdit = person => {
-    modalOpen(person);
+    // modalOpen(person);
   };
 
   const handleOnDelete = person => {
-    dispatch(deleteContact(person));
+    // dispatch(deleteContact(person));
   };
 
   const contacts = useSelector(selectFilteredContacts);
@@ -60,5 +60,3 @@ const ContactList = ({ modalOpen }) => {
     </>
   );
 };
-
-export default ContactList;

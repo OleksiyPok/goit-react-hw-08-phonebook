@@ -7,15 +7,15 @@ import { addContact } from 'redux/contacts/contactsOparations';
 
 import {
   ModalOverlay,
-  ModalWindow,
+  ModalForm,
   TitleStyled,
-  FormStyled,
   LabelStyled,
   InputStyled,
   ButtonStyled,
-} from './ModalAdd.styled';
+  ButtonClose,
+} from './Modal.styled';
 
-const ModalAdd = ({ modalClose }) => {
+export const ModalAdd = ({ modalClose }) => {
   const dispatch = useDispatch();
   const contactsList = useSelector(selectContactsList);
 
@@ -52,44 +52,45 @@ const ModalAdd = ({ modalClose }) => {
       toast.error(`${newPerson.name} is already in contacts.`);
     } else {
       dispatch(addContact(newPerson));
+      modalClose();
     }
     return currentForm.reset();
   };
 
   return (
     <ModalOverlay>
-      <ModalWindow>
+      <ModalForm onSubmit={handleOnAdd} autocomplete="off">
         <TitleStyled>New contact</TitleStyled>
-        <button type="button" onClick={() => modalClose()}>
-          Close
-        </button>
-        <FormStyled onSubmit={handleOnAdd} autocomplete="off">
-          <LabelStyled htmlFor="name">Name</LabelStyled>
-          <InputStyled
-            type="text"
-            name="name"
-            id="name"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            autocomplete="off"
-            required
-          />
-          <LabelStyled htmlFor="number">Number</LabelStyled>
-          <InputStyled
-            type="tel"
-            name="number"
-            id="number"
-            title="Phone number must be at least 5 digits, can contain spaces, dashes, parentheses and can start with +"
-            placeholder="+ ..."
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            autocomplete="off"
-            required
-          />
-          <ButtonStyled type="submit">Add contact</ButtonStyled>
-        </FormStyled>
-      </ModalWindow>
+
+        <ButtonClose type="button" onClick={() => modalClose()}>
+          &#10006;
+        </ButtonClose>
+
+        <LabelStyled htmlFor="name">Name</LabelStyled>
+        <InputStyled
+          type="text"
+          name="name"
+          id="name"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          autocomplete="off"
+          required
+        />
+
+        <LabelStyled htmlFor="number">Number</LabelStyled>
+        <InputStyled
+          type="tel"
+          name="number"
+          id="number"
+          title="Phone number must be at least 5 digits, can contain spaces, dashes, parentheses and can start with +"
+          placeholder="+ ..."
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          autocomplete="off"
+          required
+        />
+
+        <ButtonStyled type="submit">Add contact</ButtonStyled>
+      </ModalForm>
     </ModalOverlay>
   );
 };
-
-export default ModalAdd;
