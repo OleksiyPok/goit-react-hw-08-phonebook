@@ -30,12 +30,12 @@ export const handleDeleteContact = (state, { payload }) => {
   state.contactsList = state.contactsList.filter(
     person => person.id !== payload.id
   );
-  toast.info(`person "${payload.name}" has been deleted.`);
+  toast.success(`person "${payload.name}" has been deleted.`);
 };
 
 export const handlePending = state => {
   state.status = 'pending';
-  console.log(state.status);
+  // console.log(state.status);
 };
 
 export const handleRejected = (state, { payload }) => {
