@@ -1,6 +1,6 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectContactsList } from 'redux/selectors';
+import { useDispatch } from 'react-redux';
+
+import { updateContact } from 'redux/contacts/contactsOparations';
 
 import {
   ModalOverlay,
@@ -13,8 +13,7 @@ import {
 } from './Modal.styled';
 
 export const ModalEdit = ({ modalClose, person }) => {
-  console.log('person:', person);
-  const contactsList = useSelector(selectContactsList);
+  const dispatch = useDispatch();
 
   const normalize = sentence => {
     const wordsArr = sentence
@@ -36,22 +35,24 @@ export const ModalEdit = ({ modalClose, person }) => {
   const handleOnUpdate = e => {
     e.preventDefault();
 
-    // const currentForm = e.target;
-    // const { name, number } = currentForm.elements;
+    const currentForm = e.target;
+    const { name, number } = currentForm.elements;
 
-    // const updatedPerson = {
-    //   name: normalize(name.value),
-    //   number: number.value,
-    // };
+    const updatedPerson = {
+      id: person.id,
+      name: normalize(name.value),
+      number: number.value,
+    };
 
-    // useDispatch(updateContact(updatedPerson));
+    dispatch(updateContact(updatedPerson));
+    modalClose();
 
-    // return currentForm.reset();
+    return currentForm.reset();
   };
 
   return (
     <ModalOverlay>
-      <ModalForm>
+      <ModalForm onSubmit={handleOnUpdate} autocomplete="off">
         <TitleStyled>Edit contact</TitleStyled>
 
         <ButtonClose type="button" onClick={() => modalClose()}>
@@ -60,7 +61,7 @@ export const ModalEdit = ({ modalClose, person }) => {
 
         <LabelStyled htmlFor="name">Name</LabelStyled>
         <InputStyled
-          value={person.name}
+          defaultValue={person.name}
           type="text"
           name="name"
           id="name"
@@ -72,7 +73,7 @@ export const ModalEdit = ({ modalClose, person }) => {
 
         <LabelStyled htmlFor="number">Number</LabelStyled>
         <InputStyled
-          value={person.number}
+          defaultValue={person.number}
           type="tel"
           name="number"
           id="number"

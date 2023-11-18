@@ -28,11 +28,11 @@ export const ContactList = ({ modalOpen }) => {
   }, [dispatch]);
 
   const handleOnEdit = person => {
-    // modalOpen(person);
+    modalOpen(person);
   };
 
   const handleOnDelete = person => {
-    // dispatch(deleteContact(person));
+    dispatch(deleteContact(person));
   };
 
   const contacts = useSelector(selectFilteredContacts);
@@ -49,8 +49,10 @@ export const ContactList = ({ modalOpen }) => {
             <SpanStyled>{person.name}:</SpanStyled>
             <SpanStyled>{person.number}</SpanStyled>
             <ButtonBlock>
-              <ButtonStyled onClick={handleOnEdit(person)}>Edit</ButtonStyled>
-              <ButtonStyled onClick={handleOnDelete(person)}>
+              <ButtonStyled onClick={() => handleOnEdit(person)}>
+                Edit
+              </ButtonStyled>
+              <ButtonStyled onClick={() => handleOnDelete(person)}>
                 Delete
               </ButtonStyled>
             </ButtonBlock>

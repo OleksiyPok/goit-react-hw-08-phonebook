@@ -2,7 +2,7 @@ import { instance } from './apiConfig';
 
 export const getData = async () => {
   const { data } = await instance.get(`/contacts`);
-  console.log('getData:', data); // develop
+  // console.log('getData:', data); // develop
   return data;
 };
 
@@ -20,7 +20,11 @@ export const deleteData = async person => {
 };
 
 export const patchData = async person => {
-  const { data } = await instance.patch(`/contacts/${person.id}`);
-  // console.log('updateData:', data); // develop
+  // console.log('person:', person);
+  const { data } = await instance.patch(`/contacts/${person.id}`, {
+    name: person.name,
+    number: person.number,
+  });
+  // console.log('updatedData:', data); // develop
   return data;
 };

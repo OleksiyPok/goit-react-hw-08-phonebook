@@ -23,9 +23,8 @@ export const SpanStyled = styled.span`
   text-overflow: ellipsis;
 `;
 
-export const ButtonBlock = styled.button`
+export const ButtonBlock = styled.div`
   border: none;
-  background-color: white;
   display: inline;
 `;
 

@@ -34,7 +34,9 @@ const ContactsPage = () => {
       <button type="button" onClick={handleModalAddOpen}>
         New contact
       </button>
+
       {showModalAdd && <ModalAdd modalClose={handleModalAddClose} />}
+
       {showModalEdit && (
         <ModalEdit modalClose={handleModalEditClose} person={editPerson} />
       )}
