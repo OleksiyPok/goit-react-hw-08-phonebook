@@ -1,3 +1,4 @@
+import { createPortal } from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
@@ -57,7 +58,7 @@ export const ModalAdd = ({ modalClose }) => {
     return currentForm.reset();
   };
 
-  return (
+  return createPortal(
     <ModalOverlay>
       <ModalForm onSubmit={handleOnAdd} autocomplete="off">
         <TitleStyled>New contact</TitleStyled>
@@ -91,6 +92,7 @@ export const ModalAdd = ({ modalClose }) => {
 
         <ButtonStyled type="submit">Add contact</ButtonStyled>
       </ModalForm>
-    </ModalOverlay>
+    </ModalOverlay>,
+    document.body
   );
 };

@@ -1,3 +1,4 @@
+import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
 
 import { updateContact } from 'redux/contacts/contactsOparations';
@@ -50,7 +51,7 @@ export const ModalEdit = ({ modalClose, person }) => {
     return currentForm.reset();
   };
 
-  return (
+  return createPortal(
     <ModalOverlay>
       <ModalForm onSubmit={handleOnUpdate} autocomplete="off">
         <TitleStyled>Edit contact</TitleStyled>
@@ -86,6 +87,7 @@ export const ModalEdit = ({ modalClose, person }) => {
 
         <ButtonStyled type="submit">Update contact</ButtonStyled>
       </ModalForm>
-    </ModalOverlay>
+    </ModalOverlay>,
+    document.body
   );
 };
