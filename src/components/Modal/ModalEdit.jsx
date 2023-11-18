@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
 
@@ -15,6 +16,21 @@ import {
 
 export const ModalEdit = ({ modalClose, person }) => {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const handleCloseModal = e => {
+      if (e.code === 'Escape') {
+        modalClose();
+      }
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleCloseModal);
+    return () => {
+      document.body.style.overflow = 'auto';
+      window.removeEventListener('keydown', handleCloseModal);
+    };
+  }, [modalClose]);
 
   const normalize = sentence => {
     const wordsArr = sentence

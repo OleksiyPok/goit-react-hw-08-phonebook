@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
@@ -16,9 +17,24 @@ import {
   ButtonClose,
 } from './Modal.styled';
 
-export const ModalAdd = ({ modalClose }) => {
+export const ModalAdd = ({ modalClose, vis }) => {
   const dispatch = useDispatch();
   const contactsList = useSelector(selectContactsList);
+
+  useEffect(() => {
+    const handleCloseModal = e => {
+      if (e.code === 'Escape') {
+        modalClose();
+      }
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleCloseModal);
+    return () => {
+      document.body.style.overflow = 'auto';
+      window.removeEventListener('keydown', handleCloseModal);
+    };
+  }, [modalClose]);
 
   const normalize = sentence => {
     const wordsArr = sentence
