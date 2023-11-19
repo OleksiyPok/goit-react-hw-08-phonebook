@@ -3,8 +3,8 @@ import { useState } from 'react';
 
 import { Section } from 'components/Section';
 import { ContactList } from 'components/ContactList';
-import { FilterForm } from 'components/FilterForm';
 import { ModalAdd, ModalEdit } from 'components/Modal';
+import { ContactsSearchAndNew } from 'components/ContactsSearchAndNew';
 
 export const ContactsPage = () => {
   const [showModalAdd, setShowModalAdd] = useState(false);
@@ -30,18 +30,14 @@ export const ContactsPage = () => {
 
   return (
     <>
-      <button type="button" onClick={handleModalAddOpen}>
-        New contact
-      </button>
-
-      {showModalAdd && <ModalAdd modalClose={handleModalAddClose} />}
-
-      {showModalEdit && (
-        <ModalEdit modalClose={handleModalEditClose} person={editPerson} />
-      )}
-
       <Section title="Contacts">
-        <FilterForm />
+        {showModalAdd && <ModalAdd modalClose={handleModalAddClose} />}
+        {showModalEdit && (
+          <ModalEdit modalClose={handleModalEditClose} person={editPerson} />
+        )}
+
+        <ContactsSearchAndNew modalOpen={handleModalAddOpen} />
+
         <ContactList modalOpen={handleModalEditOpen} />
       </Section>
     </>

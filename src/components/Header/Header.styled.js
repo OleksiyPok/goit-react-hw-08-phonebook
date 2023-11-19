@@ -1,6 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
+export const TitleStyled = styled.h1`
+  color: white;
+  text-decoration: none;
+`;
+
 export const ContainerStyled = styled.div`
   width: 90%;
   display: flex;
@@ -11,7 +16,9 @@ export const ContainerStyled = styled.div`
 `;
 
 export const HeaderStyled = styled.div`
+  /* position: fixed; */
   height: 40px;
+  width: 100%;
   background-color: darkblue;
   display: flex;
   align-items: center;
@@ -24,9 +31,7 @@ export const HeaderStyled = styled.div`
 export const NavStyled = styled.nav`
   display: flex;
   gap: 25px;
-  width: 450px;
   align-items: center;
-  /* justify-content: space-between; */
 `;
 
 export const NavLinkStyled = styled(NavLink)`
@@ -56,7 +61,7 @@ export const UserNameStyled = styled.div`
   font-weight: 700;
 `;
 
-export const LogStyled = styled.span`
+export const LoginStyled = styled.span`
   color: white;
 
   &:hover {

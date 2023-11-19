@@ -9,18 +9,23 @@ import { useAuth } from 'hooks/hooks';
 
 import {
   HeaderStyled,
+  TitleStyled,
   NavStyled,
   NavLinkStyled,
   ContainerStyled,
   UserMenyStyled,
   UserNameStyled,
-  LogStyled,
+  LoginStyled,
 } from './Header.styled';
 
 export const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isLoggedIn, current } = useAuth();
+
+  const handleRegistration = () => {
+    navigate('/registration');
+  };
 
   const handleLogin = () => {
     navigate('/login');
@@ -42,12 +47,20 @@ export const Header = () => {
           <NavLinkStyled to="/">Home</NavLinkStyled>
           {isLoggedIn && <NavLinkStyled to="/contacts">Contacts</NavLinkStyled>}
         </NavStyled>
+
+        <TitleStyled>Phonebook</TitleStyled>
+
         <UserMenyStyled>
-          <UserNameStyled>{isLoggedIn ? current.name : ''}</UserNameStyled>
           {isLoggedIn ? (
-            <LogStyled onClick={handleLogout}>Logout</LogStyled>
+            <UserNameStyled>{current.name}</UserNameStyled>
           ) : (
-            <LogStyled onClick={handleLogin}>Login</LogStyled>
+            <LoginStyled onClick={handleRegistration}>Registration</LoginStyled>
+          )}
+
+          {isLoggedIn ? (
+            <LoginStyled onClick={handleLogout}>Logout</LoginStyled>
+          ) : (
+            <LoginStyled onClick={handleLogin}>Login</LoginStyled>
           )}
         </UserMenyStyled>
       </ContainerStyled>

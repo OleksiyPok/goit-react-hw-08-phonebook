@@ -17,8 +17,6 @@ import 'react-toastify/dist/ReactToastify.css';
 const App = () => {
   return (
     <>
-      <h1>Phonebook</h1>
-
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />

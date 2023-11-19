@@ -1,9 +1,10 @@
 import React from 'react';
+import { Section } from 'components/Section';
 
 export const HomePage = () => {
   return (
     <>
-      <div>Home Page</div>
+      <Section title="Home Page"></Section>
     </>
   );
 };
