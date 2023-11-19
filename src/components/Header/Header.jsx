@@ -17,7 +17,7 @@ import {
   LogStyled,
 } from './Header.styled';
 
-const Header = () => {
+export const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isLoggedIn, current } = useAuth();
@@ -40,20 +40,17 @@ const Header = () => {
       <ContainerStyled>
         <NavStyled>
           <NavLinkStyled to="/">Home</NavLinkStyled>
-          <NavLinkStyled to="/contacts">Contacts</NavLinkStyled>
-          {/* {!isLoggedIn && <NavLinkStyled to="/login">Login</NavLinkStyled>}
-          {!isLoggedIn && (
-            <NavLinkStyled to="/registration">Registration</NavLinkStyled>
-          )} */}
+          {isLoggedIn && <NavLinkStyled to="/contacts">Contacts</NavLinkStyled>}
         </NavStyled>
         <UserMenyStyled>
           <UserNameStyled>{isLoggedIn ? current.name : ''}</UserNameStyled>
-          {isLoggedIn && <LogStyled onClick={handleLogout}>Logout</LogStyled>}
-          {!isLoggedIn && <LogStyled onClick={handleLogin}>Login</LogStyled>}
+          {isLoggedIn ? (
+            <LogStyled onClick={handleLogout}>Logout</LogStyled>
+          ) : (
+            <LogStyled onClick={handleLogin}>Login</LogStyled>
+          )}
         </UserMenyStyled>
       </ContainerStyled>
     </HeaderStyled>
   );
 };
-
-export default Header;

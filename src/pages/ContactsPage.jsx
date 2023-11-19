@@ -1,13 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
 
-import Section from 'components/Section';
-// import ContactForm from 'components/ContactForm';
+import { Section } from 'components/Section';
 import { ContactList } from 'components/ContactList';
-import FilterForm from 'components/FilterForm';
+import { FilterForm } from 'components/FilterForm';
 import { ModalAdd, ModalEdit } from 'components/Modal';
 
-const ContactsPage = () => {
+export const ContactsPage = () => {
   const [showModalAdd, setShowModalAdd] = useState(false);
   const [showModalEdit, setShowModalEdit] = useState(false);
   const [editPerson, setEditPerson] = useState(null);
@@ -48,5 +47,3 @@ const ContactsPage = () => {
     </>
   );
 };
-
-export default ContactsPage;

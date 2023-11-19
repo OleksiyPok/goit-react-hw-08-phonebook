@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Section from 'components/Section';
-import { LoginForm } from 'components/LoginForm/LoginForm';
+import { Section } from 'components/Section';
+import { LoginForm } from 'components/LoginForm';
 
-const LoginPage = () => {
+export const LoginPage = () => {
   return (
     <>
       <Section title="Login">
@@ -12,5 +12,3 @@ const LoginPage = () => {
     </>
   );
 };
-
-export default LoginPage;

@@ -8,7 +8,7 @@ import {
   // editContact,
   deleteContact,
 } from 'redux/contacts/contactsOparations';
-// import { Loader } from 'components/Loader/Loader';
+// import { Loader } from 'components/Loader';
 
 import {
   UlStyled,

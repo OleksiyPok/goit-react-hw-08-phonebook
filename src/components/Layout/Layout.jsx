@@ -3,9 +3,9 @@ import { Outlet } from 'react-router';
 import { useSelector } from 'react-redux';
 
 import { setToken } from 'services/apiConfig';
-import Header from 'components/Header/Header';
+import { Header } from 'components/Header';
 
-const Layout = () => {
+export const Layout = () => {
   //I don't like this part with token
   const { isLoggedIn, token } = useSelector(state => state.auth);
 
@@ -22,5 +22,3 @@ const Layout = () => {
     </>
   );
 };
-
-export default Layout;

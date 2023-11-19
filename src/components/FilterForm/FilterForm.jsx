@@ -4,7 +4,7 @@ import { setFilter } from 'redux/contacts/filterSlice';
 
 import { Container, Label, Input } from './FilterForm.styled';
 
-const FilterForm = () => {
+export const FilterForm = () => {
   const dispatch = useDispatch();
 
   const handleChange = e => {
@@ -26,5 +26,3 @@ const FilterForm = () => {
     </Container>
   );
 };
-
-export default FilterForm;
