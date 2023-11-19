@@ -6,7 +6,7 @@ import { setToken } from 'services/apiConfig';
 import { Header } from 'components/Header';
 
 export const Layout = () => {
-  //I don't like this part with token
+  //I don't like this part with token in Layout
   const { isLoggedIn, token } = useSelector(state => state.auth);
 
   useEffect(() => {

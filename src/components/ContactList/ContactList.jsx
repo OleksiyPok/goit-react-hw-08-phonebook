@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectFilteredContacts } from 'redux/selectors';
-// import { selectStatus } from 'redux/selectors';
 import { getContacts, deleteContact } from 'redux/contacts/contactsOparations';
+import { selectFilteredContacts } from 'redux/selectors';
+
+// import { selectStatus } from 'redux/selectors';
 // import { Loader } from 'components/Loader';
+
+import PropTypes from 'prop-types';
 
 import {
   ContainerStyled,
@@ -67,4 +70,9 @@ export const ContactList = ({ modalAddOpen, modalEditOpen }) => {
       </ContainerStyled>
     </>
   );
+};
+
+ContactList.propTypes = {
+  modalAddOpen: PropTypes.func.isRequired,
+  modalEditOpen: PropTypes.func.isRequired,
 };

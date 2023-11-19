@@ -7,6 +7,8 @@ import { toast } from 'react-toastify';
 import { selectContactsList } from 'redux/selectors';
 import { addContact } from 'redux/contacts/contactsOparations';
 
+import PropTypes from 'prop-types';
+
 import {
   ModalOverlay,
   ModalForm,
@@ -17,7 +19,7 @@ import {
   ButtonClose,
 } from './Modal.styled';
 
-export const ModalAdd = ({ modalClose, vis }) => {
+export const ModalAdd = ({ modalClose }) => {
   const dispatch = useDispatch();
   const contactsList = useSelector(selectContactsList);
 
@@ -111,4 +113,8 @@ export const ModalAdd = ({ modalClose, vis }) => {
     </ModalOverlay>,
     document.body
   );
+};
+
+ModalAdd.propTypes = {
+  modalClose: PropTypes.func.isRequired,
 };
