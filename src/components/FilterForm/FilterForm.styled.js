@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 
+export const ContainerStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const Label = styled.label`
-  margin-bottom: 10px;
-  margin-right: auto;
+  margin-bottom: 6px;
 `;
 
 export const Input = styled.input`
-  margin-bottom: 20px;
-  width: 100%;
+  /* margin-bottom: 20px; */
+  /* width: 100%; */
 `;

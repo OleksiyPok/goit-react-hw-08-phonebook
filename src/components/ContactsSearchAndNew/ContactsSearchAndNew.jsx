@@ -1,7 +1,7 @@
 import React from 'react';
 import { FilterForm } from 'components/FilterForm';
 
-import { Container, ButtonStyled } from './ContactsSearchAndNew.styled';
+import { ContainerStyled, ButtonStyled } from './ContactsSearchAndNew.styled';
 
 export const ContactsSearchAndNew = ({ modalOpen }) => {
   const handleOnAdd = () => {
@@ -10,12 +10,12 @@ export const ContactsSearchAndNew = ({ modalOpen }) => {
 
   return (
     <>
-      <Container>
+      <ContainerStyled>
         <FilterForm />
         <ButtonStyled type="button" onClick={handleOnAdd}>
           New contact
         </ButtonStyled>
-      </Container>
+      </ContainerStyled>
     </>
   );
 };

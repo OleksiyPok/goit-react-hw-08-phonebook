@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 
 import { setFilter } from 'redux/contacts/filterSlice';
 
-import { Label, Input } from './FilterForm.styled';
+import { ContainerStyled, Label, Input } from './FilterForm.styled';
 
 export const FilterForm = () => {
   const dispatch = useDispatch();
@@ -14,15 +14,17 @@ export const FilterForm = () => {
 
   return (
     <>
-      <Label>Find contacts by name {}</Label>
-      <Input
-        type="text"
-        name="personName"
-        id="personName"
-        autocomplete="off"
-        onChange={handleChange}
-        required
-      />
+      <ContainerStyled>
+        <Label>Find contacts by name</Label>
+        <Input
+          type="text"
+          name="personName"
+          id="personName"
+          autocomplete="off"
+          onChange={handleChange}
+          required
+        />
+      </ContainerStyled>
     </>
   );
 };
