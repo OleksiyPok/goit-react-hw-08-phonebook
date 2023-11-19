@@ -82,7 +82,7 @@ export const ModalAdd = ({ modalClose }) => {
         <TitleStyled>New contact</TitleStyled>
 
         <ButtonClose type="button" onClick={() => modalClose()}>
-          &#10006;
+          {/* &#10006; */}X
         </ButtonClose>
 
         <LabelStyled htmlFor="name">Name</LabelStyled>
