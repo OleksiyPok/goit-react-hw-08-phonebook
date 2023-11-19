@@ -4,8 +4,6 @@ import { useDispatch } from 'react-redux';
 
 import { updateContact } from 'redux/contacts/contactsOparations';
 
-import PropTypes from 'prop-types';
-
 import {
   ModalOverlay,
   ModalForm,
@@ -108,13 +106,4 @@ export const ModalEdit = ({ modalClose, person }) => {
     </ModalOverlay>,
     document.body
   );
-};
-
-ModalEdit.propTypes = {
-  modalClose: PropTypes.func.isRequired,
-  person: PropTypes.exact({
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    number: PropTypes.string.isRequired,
-  }),
 };
