@@ -2,9 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 
 import { Section } from 'components/Section';
+import { FilterForm } from 'components/FilterForm';
 import { ContactList } from 'components/ContactList';
 import { ModalAdd, ModalEdit } from 'components/Modal';
-import { ContactsSearchAndNew } from 'components/ContactsSearchAndNew';
 
 export const ContactsPage = () => {
   const [showModalAdd, setShowModalAdd] = useState(false);
@@ -31,14 +31,17 @@ export const ContactsPage = () => {
   return (
     <>
       <Section title="Contacts">
+        <FilterForm />
+
+        <ContactList
+          modalAddOpen={handleModalAddOpen}
+          modalEditOpen={handleModalEditOpen}
+        />
+
         {showModalAdd && <ModalAdd modalClose={handleModalAddClose} />}
         {showModalEdit && (
           <ModalEdit modalClose={handleModalEditClose} person={editPerson} />
         )}
-
-        <ContactsSearchAndNew modalOpen={handleModalAddOpen} />
-
-        <ContactList modalOpen={handleModalEditOpen} />
       </Section>
     </>
   );

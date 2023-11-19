@@ -1,5 +1,18 @@
 import styled from 'styled-components';
 
+export const ContainerStyled = styled.div`
+  /* display: flex; */
+  /* flex-direction: column; */
+  width: 100%;
+`;
+
+export const ButtonAddStyled = styled.button`
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: auto;
+  width: 105px;
+`;
+
 export const UlStyled = styled.ul`
   width: 100%;
   list-style: square;
@@ -7,13 +20,6 @@ export const UlStyled = styled.ul`
 
 export const LiStyled = styled.li`
   padding: 4px;
-  /* display: flex; */
-`;
-
-export const PStyled = styled.p`
-  margin: 0;
-  margin-right: auto;
-  color: darkblue;
 `;
 
 export const SpanStyled = styled.span`
@@ -30,5 +36,6 @@ export const ButtonBlock = styled.div`
 
 export const ButtonStyled = styled.button`
   /* width: 50px; */
+  margin: 0;
   margin-left: 10px;
 `;
