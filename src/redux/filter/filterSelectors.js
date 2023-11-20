@@ -18,3 +18,9 @@ export const selectFilteredContacts = createSelector(
     return filteredContacts;
   }
 );
+export const selectFilteredAmount = createSelector(
+  [selectFilteredContacts],
+  filteredContacts => {
+    return filteredContacts.length;
+  }
+);

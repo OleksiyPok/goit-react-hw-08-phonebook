@@ -1,20 +1,18 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { setFilter } from 'redux/filter/filterSlice';
-import { selectFilteredContacts } from 'redux/filter/filterSelectors';
+import { useFilter } from 'hooks';
 
 import { ContainerStyled, LabelStyled, InputStyled } from './FilterForm.styled';
 
 export const FilterForm = () => {
   const dispatch = useDispatch();
+  const { filteredAmount } = useFilter();
 
   const handleChange = e => {
     const filterString = e.target.value;
     dispatch(setFilter(filterString.toLowerCase()));
   };
-
-  const contacts = useSelector(selectFilteredContacts);
-  const contactsLength = contacts.length;
 
   return (
     <>
@@ -30,7 +28,7 @@ export const FilterForm = () => {
           required
         />
 
-        <LabelStyled>Amount of contacts: {contactsLength}</LabelStyled>
+        <LabelStyled>Amount of contacts: {filteredAmount}</LabelStyled>
       </ContainerStyled>
     </>
   );
