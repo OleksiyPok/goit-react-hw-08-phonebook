@@ -59,12 +59,14 @@ export const authLogout = createAsyncThunk(
   async (body, thunkApi) => {
     try {
       const data = await logout(body);
+
       if (!data) {
         throw new Error('Server Error!');
       }
-
+      console.log('data:', data);
       return data;
     } catch (error) {
+      console.log('logoutError');
       return thunkApi.rejectWithValue(error.message);
     }
   }

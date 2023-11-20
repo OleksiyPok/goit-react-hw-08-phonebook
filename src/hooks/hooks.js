@@ -4,11 +4,15 @@ import {
   selectIsLoggedIn,
   selectToken,
   selectCurrent,
+  selectIsRefrashing,
   selectError,
+} from 'redux/auth/authSelectors';
+
+import {
   selectsContactsIsLoading,
   selectContactsList,
   selectFilterKey,
-} from 'redux/selectors';
+} from 'redux/contacts/contactsSelectors';
 
 export const useAuth = () => {
   return {
@@ -16,6 +20,7 @@ export const useAuth = () => {
     isLoggedIn: useSelector(selectIsLoggedIn),
     token: useSelector(selectToken),
     current: useSelector(selectCurrent),
+    isRefrashing: useSelector(selectIsRefrashing),
     error: useSelector(selectError),
   };
 };

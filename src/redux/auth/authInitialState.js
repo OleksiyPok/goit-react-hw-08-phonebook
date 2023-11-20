@@ -3,5 +3,6 @@ export const authInitialState = {
   token: null,
   isLoggedIn: false,
   current: null,
+  isRefrashing: false,
   error: null,
 };
