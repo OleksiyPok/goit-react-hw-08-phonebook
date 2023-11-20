@@ -25,7 +25,7 @@ export const FilterForm = () => {
           type="text"
           name="personName"
           id="personName"
-          autocomplete="off"
+          autoComplete="off"
           onChange={handleChange}
           required
         />

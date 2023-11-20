@@ -5,7 +5,7 @@ import { authLogout } from 'redux/auth/authOperations';
 import { useDispatch } from 'react-redux';
 
 import { toast } from 'react-toastify';
-import { useAuth } from 'hooks/hooks';
+import { useAuth } from 'hooks/useAuth';
 
 import {
   HeaderStyled,
@@ -21,7 +21,7 @@ import {
 export const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isLoggedIn, current } = useAuth();
+  const { isLoggedIn, currentUser } = useAuth();
 
   const handleRegistration = () => {
     navigate('/registration');
@@ -36,7 +36,7 @@ export const Header = () => {
       .unwrap()
       .then(() => {
         navigate('/');
-        toast.success(`Bye, ${current.name}!`);
+        toast.success(`Bye, ${currentUser.name}!`);
       });
   };
 
@@ -52,7 +52,7 @@ export const Header = () => {
 
         <UserMenyStyled>
           {isLoggedIn ? (
-            <UserNameStyled>{current.name}</UserNameStyled>
+            <UserNameStyled>{currentUser.name}</UserNameStyled>
           ) : (
             <LoginStyled onClick={handleRegistration}>Registration</LoginStyled>
           )}

@@ -2,7 +2,7 @@ export const authInitialState = {
   isLoading: false,
   token: null,
   isLoggedIn: false,
-  current: null,
+  currentUser: null,
   isRefrashing: false,
   error: null,
 };

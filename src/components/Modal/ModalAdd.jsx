@@ -76,7 +76,7 @@ export const ModalAdd = ({ modalClose, vis }) => {
 
   return createPortal(
     <ModalOverlay>
-      <ModalForm onSubmit={handleOnAdd} autocomplete="off">
+      <ModalForm onSubmit={handleOnAdd} autoComplete="off">
         <TitleStyled>New contact</TitleStyled>
 
         <ButtonClose type="button" onClick={() => modalClose()}>
@@ -90,7 +90,7 @@ export const ModalAdd = ({ modalClose, vis }) => {
           id="name"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          autocomplete="off"
+          autoComplete="off"
           required
         />
 
@@ -102,7 +102,7 @@ export const ModalAdd = ({ modalClose, vis }) => {
           title="Phone number must be at least 5 digits, can contain spaces, dashes, parentheses and can start with +"
           placeholder="+ ..."
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          autocomplete="off"
+          autoComplete="off"
           required
         />
 
