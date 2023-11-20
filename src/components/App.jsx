@@ -2,13 +2,13 @@ import { Routes, Route } from 'react-router';
 
 import { Layout } from './Layout';
 import { HomePage } from 'pages/HomePage';
-// import { RegistrationPage } from 'pages/RegistrationPage';
+import { RegistrationPage } from 'pages/RegistrationPage';
 import { LoginPage } from 'pages/LoginPage';
-// import { ContactsPage } from 'pages/ContactsPage';
+import { ContactsPage } from 'pages/ContactsPage';
 import routes from 'routes';
 
 // import { PrivateRoute } from './PrivateRoute';
-import { PublicRoute } from './PublicRoute';
+// import { PublicRoute } from './PublicRoute';
 
 import { ToastContainer } from 'react-toastify';
 import { toastParams } from 'components/toastify';
@@ -20,30 +20,30 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          {/* <Route
+          <Route
             path={routes.REGISTRATION_PAGE}
             element={
-              <PublicRoute>
-                <RegistrationPage />
-              </PublicRoute>
+              // <PublicRoute>
+              <RegistrationPage />
+              // </PublicRoute>
             }
-          /> */}
+          />
           <Route
             path={routes.LOGIN_PAGE}
             element={
-              <PublicRoute>
-                <LoginPage />
-              </PublicRoute>
+              // <PublicRoute>
+              <LoginPage />
+              // </PublicRoute>
             }
           />
-          {/* <Route
+          <Route
             path={routes.CONTACTS_PAGE}
             element={
-              <PrivateRoute>
-                <ContactsPage />
-              </PrivateRoute>
+              // <PrivateRoute>
+              <ContactsPage />
+              // </PrivateRoute>
             }
-          /> */}
+          />
         </Route>
       </Routes>
       <ToastContainer {...toastParams} />
