@@ -5,7 +5,7 @@ import { authLogout } from 'redux/auth/authOperations';
 import { useDispatch } from 'react-redux';
 
 import { toast } from 'react-toastify';
-import { useAuth } from 'hooks/useAuth';
+import { useAuth } from 'hooks';
 
 import {
   HeaderStyled,

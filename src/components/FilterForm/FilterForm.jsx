@@ -19,7 +19,7 @@ export const FilterForm = () => {
   return (
     <>
       <ContainerStyled>
-        <LabelStyled>Find contact</LabelStyled>
+        <LabelStyled>Find person</LabelStyled>
 
         <InputStyled
           type="text"
