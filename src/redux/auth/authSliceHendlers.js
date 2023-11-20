@@ -24,7 +24,7 @@ export const handleFulfilledLogout = state => {
 
 export const handleFulfilledCurrent = (state, { payload }) => {
   state.isLoading = false;
-  state.token = payload.token;
+  // state.token = payload.token;
   state.isLoggedIn = true;
   state.currentUser = payload;
   state.error = null;

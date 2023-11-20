@@ -6,7 +6,7 @@ import {
   authRegistration,
   authLogin,
   authLogout,
-  authCurrent,
+  authCurrentUser,
 } from './authOperations';
 
 import {
@@ -26,7 +26,7 @@ const authSlice = createSlice({
       .addCase(authRegistration.fulfilled, handleFulfilledRegistration)
       .addCase(authLogin.fulfilled, handleFulfilledLogin)
       .addCase(authLogout.fulfilled, handleFulfilledLogout)
-      .addCase(authCurrent.fulfilled, handleFulfilledCurrent)
+      .addCase(authCurrentUser.fulfilled, handleFulfilledCurrent)
       .addMatcher(action => {
         action.type.endsWith('/pending');
       }, handlePending)

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useNavigate } from 'react-router';
-import { authLogout } from 'redux/auth/authOperations';
+import { authLogout, authCurrentUser } from 'redux/auth/authOperations';
 import { useDispatch } from 'react-redux';
 
 import { toast } from 'react-toastify';
@@ -40,6 +40,10 @@ export const Header = () => {
       });
   };
 
+  const handleGetCurrentUser = () => {
+    dispatch(authCurrentUser());
+  };
+
   return (
     <HeaderStyled>
       <ContainerStyled>
@@ -52,7 +56,9 @@ export const Header = () => {
 
         <UserMenyStyled>
           {isLoggedIn ? (
-            <UserNameStyled>{currentUser.name}</UserNameStyled>
+            <UserNameStyled onClick={handleGetCurrentUser}>
+              {currentUser.name}
+            </UserNameStyled>
           ) : (
             <LoginStyled onClick={handleRegistration}>Registration</LoginStyled>
           )}
