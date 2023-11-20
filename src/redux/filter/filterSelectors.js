@@ -10,7 +10,7 @@ export const selectFilteredContacts = createSelector(
     if (!contactsList) return;
 
     const filteredContacts = contactsList.filter(person => {
-      return person.name.toLowerCase().includes(filterKey);
+      return person.name.toLowerCase().includes(filterKey.toLowerCase());
     });
 
     filteredContacts.sort((a, b) => a.name.localeCompare(b.name));
@@ -18,6 +18,7 @@ export const selectFilteredContacts = createSelector(
     return filteredContacts;
   }
 );
+
 export const selectFilteredAmount = createSelector(
   [selectFilteredContacts],
   filteredContacts => {

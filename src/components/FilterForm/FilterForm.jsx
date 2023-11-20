@@ -11,7 +11,7 @@ export const FilterForm = () => {
 
   const handleChange = e => {
     const filterString = e.target.value;
-    dispatch(setFilter(filterString.toLowerCase()));
+    dispatch(setFilter(filterString));
   };
 
   return (
