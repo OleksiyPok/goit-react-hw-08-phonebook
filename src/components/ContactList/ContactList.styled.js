@@ -10,7 +10,7 @@ export const ButtonAddStyled = styled.button`
   margin-top: 20px;
   margin-left: 20px;
   margin-right: auto;
-  width: 105px;
+  width: Auto;
 `;
 
 export const UlStyled = styled.ul`

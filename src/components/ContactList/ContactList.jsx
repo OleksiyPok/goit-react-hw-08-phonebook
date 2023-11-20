@@ -41,7 +41,7 @@ export const ContactList = ({ modalAddOpen, modalEditOpen }) => {
   return (
     <>
       <ButtonAddStyled onClick={() => handleOnAdd()}>
-        Add contact
+        New contact
       </ButtonAddStyled>
 
       <ContainerStyled>
