@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { selectFilteredContacts } from 'redux/filter/filterSelectors';
+import { useFilter } from 'hooks';
 import { getContacts, deleteContact } from 'redux/contacts/contactsOparations';
 
 import {
@@ -16,6 +16,7 @@ import {
 
 export const ContactList = ({ modalAddOpen, modalEditOpen }) => {
   const dispatch = useDispatch();
+  const { filteredContacts } = useFilter();
 
   useEffect(() => {
     dispatch(getContacts());
@@ -33,8 +34,6 @@ export const ContactList = ({ modalAddOpen, modalEditOpen }) => {
     dispatch(deleteContact(person));
   };
 
-  const contacts = useSelector(selectFilteredContacts);
-
   return (
     <>
       <ButtonAddStyled onClick={() => handleOnAdd()}>
@@ -46,7 +45,7 @@ export const ContactList = ({ modalAddOpen, modalEditOpen }) => {
         {/* {loadStatus === 'pending' && <Loader />} */}
 
         <UlStyled>
-          {contacts.map(person => (
+          {filteredContacts.map(person => (
             <LiStyled key={person.id}>
               <SpanStyled>{person.name}:</SpanStyled>
               <SpanStyled>{person.number}</SpanStyled>
