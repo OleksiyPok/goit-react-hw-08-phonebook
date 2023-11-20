@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setFilter } from 'redux/contacts/filterSlice';
-import { selectFilteredContacts } from 'redux/contacts/contactsSelectors';
+import { setFilter } from 'redux/filter/filterSlice';
+import { selectFilteredContacts } from 'redux/filter/filterSelectors';
 
 import { ContainerStyled, LabelStyled, InputStyled } from './FilterForm.styled';
 
