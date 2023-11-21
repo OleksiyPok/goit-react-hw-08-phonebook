@@ -13,7 +13,7 @@ import {
   handleFulfilledRegistration,
   handleFulfilledLogin,
   handleFulfilledLogout,
-  handleFulfilledCurrent,
+  handleFulfilledCurrentUser,
   handlePending,
   handleRejected,
 } from './authSliceHendlers';
@@ -26,7 +26,7 @@ const authSlice = createSlice({
       .addCase(authRegistration.fulfilled, handleFulfilledRegistration)
       .addCase(authLogin.fulfilled, handleFulfilledLogin)
       .addCase(authLogout.fulfilled, handleFulfilledLogout)
-      .addCase(authCurrentUser.fulfilled, handleFulfilledCurrent)
+      .addCase(authCurrentUser.fulfilled, handleFulfilledCurrentUser)
       .addMatcher(action => {
         action.type.endsWith('/pending');
       }, handlePending)

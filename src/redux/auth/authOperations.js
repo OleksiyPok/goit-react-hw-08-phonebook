@@ -11,7 +11,7 @@ export const authRegistration = createAsyncThunk(
   async (body, thunkApi) => {
     try {
       const data = await registration(body);
-      // console.log('registration response:', data);
+      // console.log('registration response:', data); // develop
 
       if (!data) {
         throw new Error('Server Error!');
@@ -19,7 +19,7 @@ export const authRegistration = createAsyncThunk(
 
       return data;
     } catch (error) {
-      // console.log('registration Error');
+      console.log(`registration Error: "${error.message}"`);
 
       return thunkApi.rejectWithValue(error.message);
     }
@@ -31,7 +31,7 @@ export const authLogin = createAsyncThunk(
   async (body, thunkApi) => {
     try {
       const data = await login(body);
-      // console.log('login response:', data);
+      console.log('login response:', data); // develop
 
       if (!data) {
         throw new Error('Server Error!');
@@ -39,7 +39,7 @@ export const authLogin = createAsyncThunk(
 
       return data;
     } catch (error) {
-      // console.log('login Error');
+      console.log(`login Error: "${error.message}"`);
 
       return thunkApi.rejectWithValue(error.message);
     }
@@ -51,7 +51,7 @@ export const authLogout = createAsyncThunk(
   async (body, thunkApi) => {
     try {
       const data = await logout(body);
-      // console.log('logout response:', data);
+      console.log('logout response:', data);
 
       if (!data) {
         throw new Error('Server Error!');
@@ -59,7 +59,7 @@ export const authLogout = createAsyncThunk(
       console.log('data:', data);
       return data;
     } catch (error) {
-      // console.log('logout Error');
+      console.log(`logout Error: "${error.message}"`);
 
       return thunkApi.rejectWithValue(error.message);
     }
@@ -68,10 +68,16 @@ export const authLogout = createAsyncThunk(
 
 export const authCurrentUser = createAsyncThunk(
   'auth/current',
-  async (body, thunkApi) => {
+  async (_, thunkApi) => {
     try {
-      const data = await getCurrentUser(body);
-      // console.log('getCurrentUser response:', data);
+      const token = thunkApi.getState().auth.token;
+
+      if (!token) {
+        return thunkApi.rejectWithValue('Unable to fetch user');
+      }
+
+      const data = await getCurrentUser();
+      console.log('getCurrentUser response:', data); // develop
 
       if (!data) {
         throw new Error('Server Error!');
@@ -79,7 +85,7 @@ export const authCurrentUser = createAsyncThunk(
 
       return data;
     } catch (error) {
-      // console.log('getCurrentUser Error');
+      console.log(`getCurrentUser Error: "${error.message}"`);
 
       return thunkApi.rejectWithValue(error.message);
     }
