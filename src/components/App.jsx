@@ -23,7 +23,6 @@ const App = () => {
 
   useEffect(() => {
     dispatch(authCurrentUser());
-    console.log('authCurrentUser');
   }, [dispatch]);
 
   return (

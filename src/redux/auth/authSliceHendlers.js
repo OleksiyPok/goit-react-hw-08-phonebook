@@ -53,6 +53,9 @@ export const handlePending = state => {
   state.currentUser = null;
   state.error = null;
   state.isRefreshing = true;
+
+  console.log('... pending');
+  console.log('');
 };
 
 export const handleRejected = (state, { error, payload }) => {
@@ -62,4 +65,7 @@ export const handleRejected = (state, { error, payload }) => {
   state.currentUser = null;
   state.error = error ? error.message : payload;
   state.isRefreshing = false;
+
+  console.log('... rejected');
+  console.log('');
 };

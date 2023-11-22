@@ -1,11 +1,10 @@
 import React from 'react';
-
 import { useNavigate } from 'react-router';
-import { authLogout, authCurrentUser } from 'redux/auth/authOperations';
 import { useDispatch } from 'react-redux';
 
 import { toast } from 'react-toastify';
 import { useAuth } from 'hooks';
+import { authLogout, authCurrentUser } from 'redux/auth/authOperations';
 
 import {
   HeaderStyled,

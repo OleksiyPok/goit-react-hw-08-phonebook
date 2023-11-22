@@ -9,6 +9,8 @@ import {
 export const authRegistration = createAsyncThunk(
   'auth/registration',
   async (body, thunkApi) => {
+    console.log('authRegistration =>');
+
     try {
       const data = await registration(body);
       // console.log('registration response:', data); // develop
@@ -29,6 +31,8 @@ export const authRegistration = createAsyncThunk(
 export const authLogin = createAsyncThunk(
   'auth/login',
   async (body, thunkApi) => {
+    console.log('authLogin =>');
+
     try {
       const data = await login(body);
       console.log('login response:', data); // develop
@@ -49,9 +53,11 @@ export const authLogin = createAsyncThunk(
 export const authLogout = createAsyncThunk(
   'auth/logout',
   async (body, thunkApi) => {
+    console.log('authLogout =>');
+
     try {
       const data = await logout(body);
-      console.log('logout response:', data);
+      console.log(`logout response:`, data);
 
       if (!data) {
         throw new Error('Server Error!');
@@ -69,8 +75,11 @@ export const authLogout = createAsyncThunk(
 export const authCurrentUser = createAsyncThunk(
   'auth/current',
   async (_, thunkApi) => {
+    console.log('authCurrentUser =>');
+
     try {
       const token = thunkApi.getState().auth.token;
+      console.log('token:', token);
 
       if (!token) {
         return thunkApi.rejectWithValue('Unable to fetch user');
