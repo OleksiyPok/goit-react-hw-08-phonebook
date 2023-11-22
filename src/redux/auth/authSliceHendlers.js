@@ -24,7 +24,7 @@ export const handleFulfilledLogin = (state, { payload }) => {
 
 export const handleFulfilledLogout = state => {
   state.isLoading = false;
-  state.token = null;
+  state.token = '';
   state.isLoggedIn = false;
   state.currentUser = null;
   state.error = null;
@@ -48,7 +48,7 @@ export const handleFulfilledCurrentUser = (state, { payload }) => {
 
 export const handlePending = state => {
   state.isLoading = true;
-  state.token = null;
+  state.token = '';
   state.isLoggedIn = false;
   state.currentUser = null;
   state.error = null;
@@ -60,7 +60,7 @@ export const handlePending = state => {
 
 export const handleRejected = (state, { error, payload }) => {
   state.isLoading = false;
-  state.token = null;
+  state.token = '';
   state.isLoggedIn = false;
   state.currentUser = null;
   state.error = error ? error.message : payload;
