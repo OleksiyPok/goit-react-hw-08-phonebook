@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
 
-import { selectContactsList } from 'redux/contacts/contactsSelectors';
+import { useContacts } from 'hooks';
 import { addContact } from 'redux/contacts/contactsOparations';
 
 import {
@@ -17,9 +17,9 @@ import {
   ButtonClose,
 } from './Modal.styled';
 
-export const ModalAdd = ({ modalClose, vis }) => {
+export const ModalAdd = ({ modalClose }) => {
   const dispatch = useDispatch();
-  const contactsList = useSelector(selectContactsList);
+  const { contactsList } = useContacts();
 
   useEffect(() => {
     const handleCloseModal = e => {

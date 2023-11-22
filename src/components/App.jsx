@@ -1,5 +1,5 @@
-// import { useDispatch } from 'react-redux';
-// import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router';
 
 import { Layout } from './Layout';
@@ -11,20 +11,20 @@ import routes from 'routes';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
 // import { useAuth } from 'hooks';
-// import { authCurrentUser } from 'redux/auth/authOperations';
+import { authCurrentUser } from 'redux/auth/authOperations';
 
 import { ToastContainer } from 'react-toastify';
 import { toastParams } from 'components/toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   // const { isRefreshing } = useAuth();
 
-  // useEffect(() => {
-  //   dispatch(authCurrentUser());
-  //   console.log('authCurrentUser');
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(authCurrentUser());
+    console.log('authCurrentUser');
+  }, [dispatch]);
 
   return (
     // !isRefreshing && (

@@ -39,6 +39,12 @@ export const handlePending = state => {
 };
 
 export const handleRejected = (state, { payload }) => {
-  state.status = 'rejected';
+  state.status = 'fulfilled';
   state.error = payload;
 };
+
+// export const handleFulfilledLogout = state => {
+//   state.contactsList = [];
+//   state.status = 'rejected';
+//   state.error = null;
+// };

@@ -21,7 +21,8 @@ import {
 export const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isLoggedIn, currentUser } = useAuth();
+  const { authIsLoggedIn: isLoggedIn, authCurrentUser: currentUser } =
+    useAuth();
 
   const handleRegistration = () => {
     navigate('/registration');

@@ -52,7 +52,7 @@ export const handlePending = state => {
   state.isLoggedIn = false;
   state.currentUser = null;
   state.error = null;
-  state.isRefreshing = false;
+  state.isRefreshing = true;
 };
 
 export const handleRejected = (state, { error, payload }) => {

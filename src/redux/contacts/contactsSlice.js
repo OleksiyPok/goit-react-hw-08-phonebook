@@ -1,4 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
+
+// import { authLogout } from 'redux/auth/authOperations';
 import { contactsInitialState } from './contactsInitialState';
 import {
   getContacts,
@@ -14,6 +16,7 @@ import {
   handleDeleteContact,
   handlePending,
   handleRejected,
+  // handleFulfilledLogout,
 } from './contactsSliceHendlers';
 
 const contactsSlice = createSlice({
@@ -28,6 +31,7 @@ const contactsSlice = createSlice({
       .addCase(addContact.fulfilled, handleAddContact)
       .addCase(updateContact.fulfilled, handleUpdateContact)
       .addCase(deleteContact.fulfilled, handleDeleteContact)
+      // .addCase(authLogout.fulfilled, handleFulfilledLogout)
 
       .addMatcher(action => {
         action.type.endsWith('/pending');
