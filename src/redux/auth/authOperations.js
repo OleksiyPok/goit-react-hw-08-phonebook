@@ -61,9 +61,6 @@ export const authLogout = createAsyncThunk(
     console.log('authLogout =>');
 
     try {
-      const token = thunkApi.getState().auth.token;
-      setToken(token);
-
       const data = await logout(body);
       console.log(`authLogout response:`, data);
 
@@ -88,8 +85,12 @@ export const authCurrentUser = createAsyncThunk(
     console.log('authCurrentUser =>');
 
     try {
-      const token = thunkApi.getState().auth.token;
-      setToken(token);
+      const persistedToken = thunkApi.getState().auth.token;
+      setToken(persistedToken);
+
+      if (persistedToken === null) {
+        return thunkApi.rejectWithValue('Unable to fetch user');
+      }
 
       const data = await getCurrentUser();
       console.log('authCurrentUser response:', data); // develop
