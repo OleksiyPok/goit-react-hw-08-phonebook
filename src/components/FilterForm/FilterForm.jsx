@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 
-import { setFilter } from 'redux/filter/filterSlice';
+import { setFilter } from 'redux/filter';
 import { useFilter } from 'hooks';
 
 import { ContainerStyled, LabelStyled, InputStyled } from './FilterForm.styled';
