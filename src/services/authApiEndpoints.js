@@ -4,7 +4,7 @@ export const registration = async newUser => {
   // console.log('registration =>');
 
   const { data } = await instance.post('/users/signup', newUser);
-  // console.log('registration responce data:', data); // develop
+  // console.log('registration response data:', data); // develop
 
   return data;
 };
@@ -13,7 +13,7 @@ export const login = async user => {
   // console.log('login =>'); // develop
 
   const { data } = await instance.post('/users/login', user);
-  // console.log('login responce data:', data); // develop
+  // console.log('login response data:', data); // develop
 
   return data;
 };

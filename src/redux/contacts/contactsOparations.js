@@ -13,7 +13,7 @@ export const getContacts = createAsyncThunk(
   async (_, thunkApi) => {
     try {
       const data = await getData();
-      // console.log('getContact responce:', data); // develop
+      // console.log('getContact response:', data); // develop
 
       if (!data) {
         throw new Error('Server Error!');
@@ -33,7 +33,7 @@ export const addContact = createAsyncThunk(
   async (newPerson, thunkApi) => {
     try {
       const data = await postData(newPerson);
-      // console.log('addContact responce:', data); // develop
+      // console.log('addContact response:', data); // develop
 
       if (!data) {
         throw new Error('Server Error!');
@@ -53,7 +53,7 @@ export const updateContact = createAsyncThunk(
   async (updatedPerson, thunkApi) => {
     try {
       const data = await patchData(updatedPerson);
-      // console.log('updateContact responce:', data); // develop
+      // console.log('updateContact response:', data); // develop
 
       if (!data) {
         throw new Error('Server Error!');

@@ -13,8 +13,6 @@ import { PublicRoute } from './PublicRoute';
 // import { useAuth } from 'hooks';
 import { authCurrentUser } from 'redux/auth/authOperations';
 
-import { ToastContainer } from 'react-toastify';
-import { toastParams } from 'components/toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
@@ -27,38 +25,37 @@ const App = () => {
 
   return (
     // !isRefreshing && (
-    <div>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route
-            path={routes.REGISTRATION_PAGE}
-            element={
-              <PublicRoute>
-                <RegistrationPage />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path={routes.LOGIN_PAGE}
-            element={
-              <PublicRoute>
-                <LoginPage />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path={routes.CONTACTS_PAGE}
-            element={
-              <PrivateRoute>
-                <ContactsPage />
-              </PrivateRoute>
-            }
-          />
-        </Route>
-      </Routes>
-      <ToastContainer {...toastParams} />
-    </div>
+
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route
+          path={routes.REGISTRATION_PAGE}
+          element={
+            <PublicRoute>
+              <RegistrationPage />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path={routes.LOGIN_PAGE}
+          element={
+            <PublicRoute>
+              <LoginPage />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path={routes.CONTACTS_PAGE}
+          element={
+            <PrivateRoute>
+              <ContactsPage />
+            </PrivateRoute>
+          }
+        />
+      </Route>
+    </Routes>
+
     // )
   );
 };
