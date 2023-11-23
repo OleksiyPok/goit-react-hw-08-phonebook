@@ -2,14 +2,14 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router';
 
-import { Layout } from './Layout';
+import { Layout } from './components/Layout';
 import { HomePage } from 'pages/HomePage';
 import { RegistrationPage } from 'pages/RegistrationPage';
 import { LoginPage } from 'pages/LoginPage';
 import { ContactsPage } from 'pages/ContactsPage';
-import routes from 'routes';
-import { PrivateRoute } from './PrivateRoute';
-import { PublicRoute } from './PublicRoute';
+import { routes } from './routes';
+import { PrivateRoute } from './routes';
+import { PublicRoute } from './routes';
 // import { useAuth } from 'hooks';
 import { authCurrentUser } from 'redux/auth/authOperations';
 
@@ -32,7 +32,7 @@ const App = () => {
         <Route
           path={routes.REGISTRATION_PAGE}
           element={
-            <PublicRoute>
+            <PublicRoute redirectTo="/contacts">
               <RegistrationPage />
             </PublicRoute>
           }
@@ -40,7 +40,7 @@ const App = () => {
         <Route
           path={routes.LOGIN_PAGE}
           element={
-            <PublicRoute>
+            <PublicRoute redirectTo="/contacts">
               <LoginPage />
             </PublicRoute>
           }
@@ -48,7 +48,7 @@ const App = () => {
         <Route
           path={routes.CONTACTS_PAGE}
           element={
-            <PrivateRoute>
+            <PrivateRoute redirectTo="/login">
               <ContactsPage />
             </PrivateRoute>
           }
