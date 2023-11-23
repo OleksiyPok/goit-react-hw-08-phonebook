@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
 
-import { updateContact } from 'redux/contacts/contactsOparations';
+import { updateContact } from 'redux/contacts';
 
 import {
   ModalOverlay,

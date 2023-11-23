@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { useFilter } from 'hooks';
-import { getContacts, deleteContact } from 'redux/contacts/contactsOparations';
+import { getContacts, deleteContact } from 'redux/contacts/contactsOperations';
 
 import {
   ContainerStyled,

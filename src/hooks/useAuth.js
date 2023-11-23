@@ -6,7 +6,7 @@ import {
   // selectToken,
   selectCurrentUser,
   selectIsRefreshing,
-} from 'redux/auth/authSelectors';
+} from 'redux/auth';
 
 export const useAuth = () => {
   return {

@@ -11,7 +11,7 @@ import { routes } from './routes';
 import { PrivateRoute } from './routes';
 import { PublicRoute } from './routes';
 // import { useAuth } from 'hooks';
-import { authCurrentUser } from 'redux/auth/authOperations';
+import { authCurrentUser } from 'redux/auth';
 
 import 'react-toastify/dist/ReactToastify.css';
 

@@ -5,7 +5,7 @@ import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
 
 import { useContacts } from 'hooks';
-import { addContact } from 'redux/contacts/contactsOparations';
+import { addContact } from 'redux/contacts/contactsOperations';
 
 import {
   ModalOverlay,

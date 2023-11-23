@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import { toast } from 'react-toastify';
 import { useAuth } from 'hooks';
-import { authLogout, authCurrentUser } from 'redux/auth/authOperations';
+import { authLogout, authCurrentUser } from 'redux/auth';
 
 import {
   HeaderStyled,
