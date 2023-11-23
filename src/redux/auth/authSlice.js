@@ -29,12 +29,6 @@ const authSlice = createSlice({
       .addCase(authCurrentUser.fulfilled, handleFulfilledCurrentUser)
       .addCase(authCurrentUser.pending, handlePendingCurrentUser)
       .addCase(authCurrentUser.rejected, handleRejectCurrentUser);
-    // .addMatcher(action => {
-    //   action.type.endsWith('/pending');
-    // }, handlePending)
-    // .addMatcher(action => {
-    //   action.type.endsWith('/rejected');
-    // }, handleRejected)
   },
 });
 

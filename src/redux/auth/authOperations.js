@@ -40,7 +40,6 @@ export const authLogin = createAsyncThunk(
       console.log('authLogin response:', data); // develop
 
       const { token } = data;
-      console.log('token:', token);
       setToken(token);
 
       if (!data) {

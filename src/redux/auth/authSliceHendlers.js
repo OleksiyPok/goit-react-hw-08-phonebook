@@ -48,28 +48,6 @@ export const handlePendingCurrentUser = state => {
 export const handleRejectCurrentUser = state => {
   state.isRefreshing = false;
 
-  console.log('CurrentUser reject');
-  console.log('');
-};
-
-export const handlePending = state => {
-  state.isLoading = true;
-  state.token = '';
-  state.isLoggedIn = false;
-  state.currentUser = null;
-  state.isRefreshing = true;
-
-  console.log('... pending');
-  console.log('');
-};
-
-export const handleRejected = (state, { payload }) => {
-  // state.isLoading = false;
-  // state.token = '';
-  // state.isLoggedIn = false;
-  // state.currentUser = null;
-  // state.isRefreshing = false;
-
-  console.log('... rejected');
+  console.log('CurrentUser rejected');
   console.log('');
 };
