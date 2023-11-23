@@ -10,6 +10,6 @@ export const ToolTipComponent = ({ text }) => {
   );
 };
 
-Section.propTypes = {
+ToolTipComponent.propTypes = {
   text: PropTypes.string,
 };
