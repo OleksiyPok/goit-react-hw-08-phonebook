@@ -10,22 +10,18 @@ import { ContactsPage } from 'pages/ContactsPage';
 import { routes } from './routes';
 import { PrivateRoute } from './routes';
 import { PublicRoute } from './routes';
-// import { useAuth } from 'hooks';
 import { authCurrentUser } from 'redux/auth';
 
 import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const dispatch = useDispatch();
-  // const { isRefreshing } = useAuth();
 
   useEffect(() => {
     dispatch(authCurrentUser());
   }, [dispatch]);
 
   return (
-    // !isRefreshing && (
-
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />

@@ -4,8 +4,8 @@ export const handleFulfilledRegistration = (state, { payload }) => {
   state.isLoggedIn = true;
   state.currentUser = payload.user;
 
-  console.log('Registration fullfiied');
-  console.log('');
+  console.log('Registration fullfiied'); //develop
+  console.log(''); //develop
 };
 
 export const handleFulfilledLogin = (state, { payload }) => {
@@ -14,8 +14,8 @@ export const handleFulfilledLogin = (state, { payload }) => {
   state.isLoggedIn = true;
   state.currentUser = payload.user;
 
-  console.log('Login fullfiied');
-  console.log('');
+  console.log('Login fullfiied'); //develop
+  console.log(''); //develop
 };
 
 export const handleFulfilledLogout = state => {
@@ -24,8 +24,8 @@ export const handleFulfilledLogout = state => {
   state.isLoggedIn = false;
   state.currentUser = { name: null, email: null };
 
-  console.log('Logout fullfiied');
-  console.log('');
+  console.log('Logout fullfiied'); //develop
+  console.log(''); //develop
 };
 
 export const handleFulfilledCurrentUser = (state, { payload }) => {
@@ -34,20 +34,20 @@ export const handleFulfilledCurrentUser = (state, { payload }) => {
   state.currentUser = payload;
   state.isRefreshing = false;
 
-  console.log('CurrentUser fullfiied');
-  console.log('');
+  console.log('CurrentUser fullfiied'); //develop
+  console.log(''); //develop
 };
 
 export const handlePendingCurrentUser = state => {
-  state.isRefreshing = true;
+  state.isLoading = true;
 
-  console.log('CurrentUser pending');
-  console.log('');
+  console.log('CurrentUser pending'); //develop
+  console.log(''); //develop
 };
 
 export const handleRejectCurrentUser = state => {
-  state.isRefreshing = false;
+  state.isLoading = false;
 
-  console.log('CurrentUser rejected');
-  console.log('');
+  console.log('CurrentUser rejected'); //develop
+  console.log(''); //develop
 };
