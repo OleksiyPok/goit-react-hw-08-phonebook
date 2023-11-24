@@ -12,8 +12,7 @@ export const Layout = () => {
   const { contactsIsLoading } = useContacts();
   return (
     <>
-      {authIsLoading && <Loader />}
-      {contactsIsLoading && <Loader />}
+      {(authIsLoading || contactsIsLoading) && <Loader />}
 
       <Header />
       <Outlet />
