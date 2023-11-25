@@ -14,6 +14,8 @@ import {
   ButtonClose,
 } from './Modal.styled';
 
+const modalRoot = document.querySelector('#modal-root');
+
 export const ModalEdit = ({ modalClose, person }) => {
   const dispatch = useDispatch();
 
@@ -104,6 +106,6 @@ export const ModalEdit = ({ modalClose, person }) => {
         <ButtonStyled type="submit">Update contact</ButtonStyled>
       </ModalForm>
     </ModalOverlay>,
-    document.body
+    modalRoot
   );
 };

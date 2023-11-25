@@ -1,8 +1,11 @@
+import { createPortal } from 'react-dom';
 import { ProgressBar } from 'react-loader-spinner';
 import { Overlay } from './Loader.styled';
 
+const loaderRoot = document.querySelector('#loader-root');
+
 export const Loader = () => {
-  return (
+  return createPortal(
     <Overlay>
       <ProgressBar
         height="200"
@@ -13,6 +16,7 @@ export const Loader = () => {
         borderColor="darkblue"
         barColor="darkblue"
       />
-    </Overlay>
+    </Overlay>,
+    loaderRoot
   );
 };

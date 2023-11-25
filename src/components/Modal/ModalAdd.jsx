@@ -17,6 +17,8 @@ import {
   ButtonClose,
 } from './Modal.styled';
 
+const modalRoot = document.querySelector('#modal-root');
+
 export const ModalAdd = ({ modalClose }) => {
   const dispatch = useDispatch();
   const { contactsList } = useContacts();
@@ -109,6 +111,6 @@ export const ModalAdd = ({ modalClose }) => {
         <ButtonStyled type="submit">Add contact</ButtonStyled>
       </ModalForm>
     </ModalOverlay>,
-    document.body
+    modalRoot
   );
 };
