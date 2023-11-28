@@ -1,13 +1,17 @@
 import axios from 'axios';
 
-export const instance = axios.create({
+export const publicInstance = axios.create({
+  baseURL: 'https://connections-api.herokuapp.com',
+});
+
+export const privatInstance = axios.create({
   baseURL: 'https://connections-api.herokuapp.com',
 });
 
 export const setToken = token => {
-  instance.defaults.headers.common.Authorization = `Bearer ${token}`;
+  privatInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 export const deleteToken = () => {
-  instance.defaults.headers.common.Authorization = '';
+  privatInstance.defaults.headers.common.Authorization = '';
 };
