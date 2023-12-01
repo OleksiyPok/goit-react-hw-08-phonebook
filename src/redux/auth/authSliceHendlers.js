@@ -51,3 +51,19 @@ export const handleRejectCurrentUser = state => {
   console.log('CurrentUser rejected'); //develop
   console.log(''); //develop
 };
+
+//-----------------------------------------------
+
+export const handlePending = state => {
+  state.isLoading = true;
+
+  console.log('CurrentUser pending'); //develop
+  console.log(''); //develop
+};
+
+export const handleReject = state => {
+  state.isLoading = false;
+
+  console.log('CurrentUser rejected'); //develop
+  console.log(''); //develop
+};

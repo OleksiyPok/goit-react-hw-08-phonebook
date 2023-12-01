@@ -39,9 +39,11 @@ export const handleDeleteContact = (state, { payload }) => {
 
 export const handlePending = state => {
   state.isLoading = true;
+  console.log('handlePending');
 };
 
 export const handleRejected = (state, { payload }) => {
   state.isLoading = false;
   state.error = payload;
+  console.log('handleRejected');
 };

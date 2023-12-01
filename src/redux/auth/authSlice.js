@@ -14,8 +14,10 @@ import {
   handleFulfilledLogin,
   handleFulfilledLogout,
   handleFulfilledCurrentUser,
-  handlePendingCurrentUser,
-  handleRejectCurrentUser,
+  // handlePendingCurrentUser,
+  // handleRejectCurrentUser,
+  handlePending,
+  handleReject,
 } from './authSliceHendlers';
 
 const authSlice = createSlice({
@@ -27,8 +29,15 @@ const authSlice = createSlice({
       .addCase(authLogin.fulfilled, handleFulfilledLogin)
       .addCase(authLogout.fulfilled, handleFulfilledLogout)
       .addCase(authCurrentUser.fulfilled, handleFulfilledCurrentUser)
-      .addCase(authCurrentUser.pending, handlePendingCurrentUser)
-      .addCase(authCurrentUser.rejected, handleRejectCurrentUser);
+      // .addCase(authCurrentUser.pending, handlePendingCurrentUser)
+      // .addCase(authCurrentUser.rejected, handleRejectCurrentUser)
+
+      .addMatcher(action => {
+        action.type.endsWith('/pending');
+      }, handlePending)
+      .addMatcher(action => {
+        action.type.endsWith('/rejected');
+      }, handleReject);
   },
 });
 
