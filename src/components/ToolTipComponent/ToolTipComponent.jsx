@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import { ContainerStyled, TextStyled } from './ToolTipComponent.styled';
 
@@ -10,6 +10,6 @@ export const ToolTipComponent = ({ text }) => {
   );
 };
 
-ToolTipComponent.propTypes = {
-  text: PropTypes.string,
-};
+// ToolTipComponent.propTypes = {
+//   text: PropTypes.string,
+// };

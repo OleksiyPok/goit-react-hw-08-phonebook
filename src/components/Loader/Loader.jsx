@@ -1,3 +1,4 @@
+import React from 'react';
 import { createPortal } from 'react-dom';
 import { ProgressBar } from 'react-loader-spinner';
 import { Overlay } from './Loader.styled';

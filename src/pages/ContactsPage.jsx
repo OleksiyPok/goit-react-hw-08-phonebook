@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import { Section } from 'components/Section';
 import { FilterForm } from 'components/FilterForm';
