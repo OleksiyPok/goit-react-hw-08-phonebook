@@ -11,11 +11,8 @@ import { setToken, deleteToken } from 'services/apiConfig';
 export const authRegistration = createAsyncThunk(
   'auth/registration',
   async (body, thunkApi) => {
-    // console.log('authRegistration =>'); // develop
-
     try {
       const data = await registration(body);
-      // console.log('authRegistration response:', data); // develop
 
       if (!data) {
         throw new Error('Server Error!');
@@ -23,8 +20,6 @@ export const authRegistration = createAsyncThunk(
 
       return data;
     } catch (error) {
-      console.log(`authRegistration Error: "${error.message}"`);
-
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -33,11 +28,8 @@ export const authRegistration = createAsyncThunk(
 export const authLogin = createAsyncThunk(
   'auth/login',
   async (body, thunkApi) => {
-    // console.log('authLogin =>'); // develop
-
     try {
       const data = await login(body);
-      // console.log('authLogin response:', data); // develop
 
       const { token } = data;
       setToken(token);
@@ -48,8 +40,6 @@ export const authLogin = createAsyncThunk(
 
       return data;
     } catch (error) {
-      console.log(`authLogin Error: "${error.message}"`);
-
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -58,11 +48,8 @@ export const authLogin = createAsyncThunk(
 export const authLogout = createAsyncThunk(
   'auth/logout',
   async (body, thunkApi) => {
-    // console.log('authLogout =>'); // develop
-
     try {
       const data = await logout(body);
-      // console.log(`authLogout response:`, data); // develop
 
       if (!data) {
         throw new Error('Server Error!');
@@ -72,8 +59,6 @@ export const authLogout = createAsyncThunk(
 
       return data;
     } catch (error) {
-      console.log(`authLogout Error: "${error.message}"`);
-
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -82,8 +67,6 @@ export const authLogout = createAsyncThunk(
 export const authCurrentUser = createAsyncThunk(
   'auth/current',
   async (_, thunkApi) => {
-    // console.log('authCurrentUser =>'); // develop
-
     try {
       const persistedToken = thunkApi.getState().auth.token;
       setToken(persistedToken);
@@ -93,7 +76,6 @@ export const authCurrentUser = createAsyncThunk(
       }
 
       const data = await getCurrentUser();
-      // console.log('authCurrentUser response:', data); // develop
 
       if (!data) {
         throw new Error('Server Error!');
@@ -101,8 +83,6 @@ export const authCurrentUser = createAsyncThunk(
 
       return data;
     } catch (error) {
-      console.log(`authCurrentUser Error: "${error.message}"`);
-
       return thunkApi.rejectWithValue(error.message);
     }
   }

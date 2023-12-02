@@ -41,11 +41,7 @@ export const Header = () => {
   };
 
   const handleGetCurrentUser = () => {
-    dispatch(authCurrentUser())
-      // .unwrap()
-      // .then(payload => {
-      //   console.log(payload);
-      // });
+    dispatch(authCurrentUser());
   };
   return (
     <HeaderStyled>

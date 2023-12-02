@@ -31,16 +31,6 @@ const contactsSlice = createSlice({
       .addCase(updateContact.fulfilled, handleUpdateContact)
       .addCase(deleteContact.fulfilled, handleDeleteContact)
 
-      // .addCase(getContacts.pending, handlePending)
-      // .addCase(addContact.pending, handlePending)
-      // .addCase(updateContact.pending, handlePending)
-      // .addCase(deleteContact.pending, handlePending)
-
-      // .addCase(getContacts.rejected, handleRejected)
-      // .addCase(addContact.rejected, handleRejected)
-      // .addCase(updateContact.rejected, handleRejected)
-      // .addCase(deleteContact.rejected, handleRejected)
-
       .addMatcher(action => {
         return (
           action.type.includes('contacts') && action.type.endsWith('/pending')

@@ -50,9 +50,6 @@ export const ContactList = ({ modalAddOpen, modalEditOpen }) => {
       </ButtonAddStyled>
 
       <ContainerStyled>
-        {/* <Loader /> */}
-        {/* {loadStatus === 'pending' && <Loader />} */}
-
         <UlStyled>
           {filteredContacts.map(person => (
             <LiStyled key={person.id}>
