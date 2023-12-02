@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import { updateContact } from 'redux/contacts';
 
@@ -63,7 +64,15 @@ export const ModalEdit = ({ modalClose, person }) => {
       number: number.value,
     };
 
-    dispatch(updateContact(updatedPerson));
+    dispatch(updateContact(updatedPerson))
+      .unwrap()
+      .then(({ name }) => {
+        toast.success(`${name} has been updated.`);
+      })
+      .catch(error => {
+        toast.error('Deleting error');
+        console.log(error);
+      });
     modalClose();
 
     return currentForm.reset();

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import { useFilter } from 'hooks';
 import { getContacts, deleteContact } from 'redux/contacts/contactsOperations';
@@ -31,7 +32,15 @@ export const ContactList = ({ modalAddOpen, modalEditOpen }) => {
   };
 
   const handleOnDelete = person => {
-    dispatch(deleteContact(person));
+    dispatch(deleteContact(person))
+      .unwrap()
+      .then(({ name }) => {
+        toast.success(`person "${name}" has been deleted.`);
+      })
+      .catch(error => {
+        toast.error('Login error');
+        console.log(error);
+      });
   };
 
   return (

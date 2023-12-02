@@ -70,7 +70,15 @@ export const ModalAdd = ({ modalClose }) => {
     if (contactsList.some(person => newPerson.name === person.name)) {
       toast.error(`${newPerson.name} is already in contacts.`);
     } else {
-      dispatch(addContact(newPerson));
+      dispatch(addContact(newPerson))
+        .unwrap()
+        .then(({ name }) => {
+          toast.success(`${name} has been added to contacts.`);
+        })
+        .catch(error => {
+          toast.error('Adding error');
+          console.log(error);
+        });
       modalClose();
     }
     return currentForm.reset();

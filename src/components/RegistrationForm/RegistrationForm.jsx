@@ -34,7 +34,6 @@ export const RegistrationForm = () => {
       .then(({ user }) => {
         navigate('/login');
         toast.success(`New user ${user.name} has been registered`); // "user" from backend
-        console.log('user:', user);
       })
       .catch(error => {
         toast.error(`New user ${newUser.name} has not been registered`); // "newUser" from registrationForm
