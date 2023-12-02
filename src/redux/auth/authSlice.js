@@ -10,14 +10,12 @@ import {
 } from './authOperations';
 
 import {
-  handleFulfilledRegistration,
-  handleFulfilledLogin,
-  handleFulfilledLogout,
-  handleFulfilledCurrentUser,
-  // handlePendingCurrentUser,
-  // handleRejectCurrentUser,
+  handleRegistration,
+  handleLogin,
+  handleLogout,
+  handleCurrentUser,
   handlePending,
-  handleReject,
+  handleRejected,
 } from './authSliceHendlers';
 
 const authSlice = createSlice({
@@ -25,19 +23,29 @@ const authSlice = createSlice({
   initialState: authInitialState,
   extraReducers: builder => {
     builder
-      .addCase(authRegistration.fulfilled, handleFulfilledRegistration)
-      .addCase(authLogin.fulfilled, handleFulfilledLogin)
-      .addCase(authLogout.fulfilled, handleFulfilledLogout)
-      .addCase(authCurrentUser.fulfilled, handleFulfilledCurrentUser)
-      // .addCase(authCurrentUser.pending, handlePendingCurrentUser)
-      // .addCase(authCurrentUser.rejected, handleRejectCurrentUser)
+      .addCase(authRegistration.fulfilled, handleRegistration)
+      .addCase(authLogin.fulfilled, handleLogin)
+      .addCase(authLogout.fulfilled, handleLogout)
+      .addCase(authCurrentUser.fulfilled, handleCurrentUser)
+
+      // .addCase(authRegistration.pending, handlePending)
+      // .addCase(authLogin.pending, handlePending)
+      // .addCase(authLogout.pending, handlePending)
+      // .addCase(authCurrentUser.pending, handlePending)
+
+      // .addCase(authRegistration.rejected, handleRejected)
+      // .addCase(authLogin.rejected, handleRejected)
+      // .addCase(authLogout.rejected, handleRejected)
+      // .addCase(authCurrentUser.rejected, handleRejected)
 
       .addMatcher(action => {
-        action.type.endsWith('/pending');
+        return action.type.includes('auth') && action.type.endsWith('/pending');
       }, handlePending)
       .addMatcher(action => {
-        action.type.endsWith('/rejected');
-      }, handleReject);
+        return (
+          action.type.includes('auth') && action.type.endsWith('/rejected')
+        );
+      }, handleRejected);
   },
 });
 

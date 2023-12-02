@@ -16,7 +16,9 @@ export const Layout = () => {
       {(authIsLoading || contactsIsLoading) && <Loader />}
 
       <Header />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
 
       <ToastContainer {...toastParams} />
     </>

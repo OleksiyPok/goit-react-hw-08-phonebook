@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { contactsInitialState } from './contactsInitialState';
+
 import {
   getContacts,
   addContact,
@@ -41,10 +42,14 @@ const contactsSlice = createSlice({
       // .addCase(deleteContact.rejected, handleRejected)
 
       .addMatcher(action => {
-        action.type.endsWith('/pending');
+        return (
+          action.type.includes('contacts') && action.type.endsWith('/pending')
+        );
       }, handlePending)
       .addMatcher(action => {
-        action.type.endsWith('/rejected');
+        return (
+          action.type.includes('contacts') && action.type.endsWith('/rejected')
+        );
       }, handleRejected);
   },
 });

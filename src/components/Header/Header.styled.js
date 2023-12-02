@@ -16,7 +16,10 @@ export const ContainerStyled = styled.div`
 `;
 
 export const HeaderStyled = styled.div`
-  /* position: fixed; */
+  position: fixed;
+  top: 0;
+  left: 0;
+
   height: 40px;
   width: 100%;
   background-color: darkblue;

@@ -11,11 +11,11 @@ import { setToken, deleteToken } from 'services/apiConfig';
 export const authRegistration = createAsyncThunk(
   'auth/registration',
   async (body, thunkApi) => {
-    console.log('authRegistration =>');
+    // console.log('authRegistration =>'); // develop
 
     try {
       const data = await registration(body);
-      console.log('authRegistration response:', data); // develop
+      // console.log('authRegistration response:', data); // develop
 
       if (!data) {
         throw new Error('Server Error!');
@@ -33,11 +33,11 @@ export const authRegistration = createAsyncThunk(
 export const authLogin = createAsyncThunk(
   'auth/login',
   async (body, thunkApi) => {
-    console.log('authLogin =>');
+    // console.log('authLogin =>'); // develop
 
     try {
       const data = await login(body);
-      console.log('authLogin response:', data); // develop
+      // console.log('authLogin response:', data); // develop
 
       const { token } = data;
       setToken(token);
@@ -58,11 +58,11 @@ export const authLogin = createAsyncThunk(
 export const authLogout = createAsyncThunk(
   'auth/logout',
   async (body, thunkApi) => {
-    console.log('authLogout =>');
+    // console.log('authLogout =>'); // develop
 
     try {
       const data = await logout(body);
-      console.log(`authLogout response:`, data);
+      // console.log(`authLogout response:`, data); // develop
 
       if (!data) {
         throw new Error('Server Error!');
@@ -82,7 +82,7 @@ export const authLogout = createAsyncThunk(
 export const authCurrentUser = createAsyncThunk(
   'auth/current',
   async (_, thunkApi) => {
-    console.log('authCurrentUser =>');
+    // console.log('authCurrentUser =>'); // develop
 
     try {
       const persistedToken = thunkApi.getState().auth.token;
@@ -93,7 +93,7 @@ export const authCurrentUser = createAsyncThunk(
       }
 
       const data = await getCurrentUser();
-      console.log('authCurrentUser response:', data); // develop
+      // console.log('authCurrentUser response:', data); // develop
 
       if (!data) {
         throw new Error('Server Error!');

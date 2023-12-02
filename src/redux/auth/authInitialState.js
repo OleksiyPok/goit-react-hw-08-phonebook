@@ -1,8 +1,6 @@
 export const authInitialState = {
   isLoading: false,
-  token: '',
+  token: null,
   isLoggedIn: false,
-  currentUser: { name: '', email: '' },
-  isRefreshing: false,
-  // error: null,
+  currentUser: { name: null, email: null },
 };
