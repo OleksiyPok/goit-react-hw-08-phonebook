@@ -1,6 +1,6 @@
-export const REGEX = Object.freeze({
-  nameRegex: /^[a-zA-Zа-яА-Я]+((['-][a-zA-Zа-яА-Я])?[a-zA-Zа-яА-Я]*)*$/,
+// export const REGEX = Object.freeze({
+//   nameRegex: "^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$",
 
-  phoneRegex:
-    /^[+]?[(]?[0-9]{0,2}[)]?[-\s]?[(]?[0-9]{3}[)]?[-\s]?[0-9]{3,4}[-\s]?[0-9]{3,4}$/,
-});
+//   phoneRegex:
+//     "\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}",
+// });
