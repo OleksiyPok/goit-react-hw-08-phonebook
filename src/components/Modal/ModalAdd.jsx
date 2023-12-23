@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
 
-// import { nameRegex, phoneRegex } from 'constants';
+import { REGEX } from 'constants';
 import { useContacts } from 'hooks';
 import { addContact } from 'redux/contacts/contactsOperations';
 
@@ -100,7 +100,8 @@ export const ModalAdd = ({ modalClose }) => {
           name="name"
           id="name"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          pattern="^[a-zA-Zа-яА-Я]+(([\'\-][a-zA-Zа-яА-Я])?[a-zA-Zа-яА-Я]*)*$"
+          // pattern="^[a-zA-Zа-яА-Я]+(([\'\-][a-zA-Zа-яА-Я])?[a-zA-Zа-яА-Я]*)*$"
+          pattern={REGEX.nameRegex}
           autoComplete="off"
           required
         />
@@ -112,7 +113,8 @@ export const ModalAdd = ({ modalClose }) => {
           id="number"
           title="Phone number must be at least 5 digits, can contain spaces, dashes, parentheses and can start with +"
           placeholder="+ ..."
-          pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
+          // pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
+          pattern={REGEX.phoneRegex}
           autoComplete="off"
           required
         />
