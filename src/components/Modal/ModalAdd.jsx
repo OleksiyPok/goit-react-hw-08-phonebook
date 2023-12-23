@@ -112,7 +112,7 @@ export const ModalAdd = ({ modalClose }) => {
           id="number"
           title="Phone number must be at least 5 digits, can contain spaces, dashes, parentheses and can start with +"
           placeholder="+ ..."
-          pattern="\+?\d{1,4}?[.\-\s]?\(?\d{1,3}?\)?[.\-\s]?\d{1,4}[.\-\s]?\d{1,4}[.\-\s]?\d{1,9}"
+          pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
           autoComplete="off"
           required
         />
