@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import { updateContact } from 'redux/contacts';
+import { nameRegex, phoneRegex } from 'constants';
 
 import {
   ModalOverlay,
@@ -94,7 +95,7 @@ export const ModalEdit = ({ modalClose, person }) => {
           name="name"
           id="name"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          pattern={nameRegex}
           autoComplete="off"
           required
         />
@@ -107,7 +108,7 @@ export const ModalEdit = ({ modalClose, person }) => {
           id="number"
           title="Phone number must be at least 5 digits, can contain spaces, dashes, parentheses and can start with +"
           placeholder="+ ..."
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          pattern={phoneRegex}
           autoComplete="off"
           required
         />
