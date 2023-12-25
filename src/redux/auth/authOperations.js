@@ -13,6 +13,8 @@ export const authRegistration = createAsyncThunk(
   async (body, thunkApi) => {
     try {
       const data = await registration(body);
+      const { token } = data;
+      setToken(token);
 
       if (!data) {
         throw new Error('Server Error!');
@@ -30,7 +32,6 @@ export const authLogin = createAsyncThunk(
   async (body, thunkApi) => {
     try {
       const data = await login(body);
-
       const { token } = data;
       setToken(token);
 

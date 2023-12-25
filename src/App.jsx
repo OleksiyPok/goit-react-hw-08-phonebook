@@ -13,12 +13,16 @@ import { PublicRoute } from './routes';
 import { authCurrentUser } from 'redux/auth';
 
 import 'react-toastify/dist/ReactToastify.css';
+import { store } from 'redux/store';
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(authCurrentUser());
+    const isLoggedIn = store.getState().auth.isLoggedIn;
+    if (isLoggedIn) {
+      dispatch(authCurrentUser());
+    }
   }, [dispatch]);
 
   return (
